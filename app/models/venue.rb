@@ -13,6 +13,6 @@ class Venue < ApplicationRecord
   validates :zip, format: {
     with: /[\d]/,
     message: "is not a number"
-    }
+  }
   validates :zip, length: { is: 5 }
 end
