@@ -13,6 +13,5 @@ class Venue < ApplicationRecord
   validates :zip, presence: true
   validates :zip, format: { with: /[\d]/,
     message: "is not a number" }
-  validates :zip, length: {is: 5}
-
+  validates :zip, length: { is: 5 }
 end
