@@ -1,7 +1,6 @@
 require 'uri'
 
 class Venue < ApplicationRecord
-
   validates :name, presence: true
 
   validates :url, format: { with: URI.regexp }, if: 'url.present?'
@@ -11,7 +10,8 @@ class Venue < ApplicationRecord
   validates :state, presence: true
 
   validates :zip, presence: true
-  validates :zip, format: { with: /[\d]/,
+  validates :zip, format: {
+    with: /[\d]/,
     message: "is not a number" }
   validates :zip, length: { is: 5 }
 end
