@@ -6,6 +6,8 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'dotenv'
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
@@ -18,9 +20,11 @@ group :development, :test do
   gem 'launchy', require: false
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
-  gem 'shoulda'
+  gem 'shoulda-matchers', require: false
   gem 'valid_attribute'
+  gem 'coveralls', require: false
 end
+
 
 group :production do
   gem 'rails_12factor'
