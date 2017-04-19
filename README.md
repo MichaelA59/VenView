@@ -25,8 +25,7 @@ Things you may want to cover:
 
 ![Build Status](https://codeship.com/projects/b0175f50-0761-0135-c695-4619059f53e8/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/MichaelA59/VenView.png)
-![Coverage Status](https://coveralls.io/repos/MichaelA59/VenView/badge.png)
-
+[![Coverage Status](https://coveralls.io/repos/github/MichaelA59/VenView/badge.svg?branch=master)](https://coveralls.io/github/MichaelA59/VenView?branch=master)
 Ruby version: 2.3.3.
 
 To start, run `bundle install`.
