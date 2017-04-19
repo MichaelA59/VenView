@@ -55,13 +55,13 @@ feature "sign in" do
   # So that I can post venues and review them
 
   scenario "user signs in successfully" do
-    bob = User.new(first_name: 'Bob', last_name: 'Billbob', password: 'password123', email: 'bob.billbob@gmail.com')
+    User.create(first_name: 'Bob', last_name: 'Billbob', password: 'password123', email: 'bob.billbob@gmail.com')
 
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: 'bob.billbob@gmail.com'
     fill_in 'Password' , with: 'password123'
-    click_link 'Sign In'
+    click_button 'Sign In'
 
     expect(page).to have_content "Welcome back! You are signed in successfully."
     expect(page).not_to have_content "Sign Up"
@@ -74,21 +74,21 @@ feature "sign in" do
     click_link 'Sign In'
     fill_in 'Email', with: 'brianna.billbob@gmail.com'
     fill_in 'Password' , with: 'password123'
-    click_link 'Sign In'
+    click_button 'Sign In'
 
     expect(page).to have_content "We could not find your email! Please reenter or create an account."
   end
 
   scenario "user enters incorrect password" do
-    bob = User.new(first_name: 'Bob', last_name: 'Billbob', password: 'password123', email: 'bob.billbob@gmail.com')
+    bob = User.create(first_name: 'Bob', last_name: 'Billbob', password: 'password123', email: 'bob.billbob@gmail.com')
 
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: 'bob.billbob@gmail.com'
     fill_in 'Password' , with: 'password12'
-    click_link 'Sign In'
+    click_button 'Sign In'
 
-    expect(page).to have_content "Your password is incorrect."
+    expect(page).to have_content "Sorry! Wrong password. Please try again!"
   end
 end
 
@@ -98,13 +98,13 @@ feature "sign out" do
   # So that no one else can post venues or reviews on my behalf
 
   scenario "successful sign out" do
-    bob = User.new(first_name: 'Bob', last_name: 'Billbob', password: 'password123', email: 'bob.billbob@gmail.com')
+    bob = User.create(first_name: 'Bob', last_name: 'Billbob', password: 'password123', email: 'bob.billbob@gmail.com')
 
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: 'bob.billbob@gmail.com'
     fill_in 'Password' , with: 'password123'
-    click_link 'Sign In'
+    click_button 'Sign In'
 
     click_link "Sign Out"
 
