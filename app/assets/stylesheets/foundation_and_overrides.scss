@@ -51,16 +51,20 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
+$transparent: rgba(0, 0, 0, 0);
+$see-through: rgba(255, 255, 255, 0.2);
+
 a {
-  color: white;
+  color: #FFFFFF;
 }
 
-.top-bar, .top-bar ul {
-  background-color: rgba(0,0,0,0);
+.top-bar,
+.top-bar ul {
+  background-color: $transparent;
 }
 
 .top-bar {
-  border-bottom: solid 1px rgba(255,255,255,.2);
+  border-bottom: solid 1px $see-through;
 }
 
 .top-bar-right {
