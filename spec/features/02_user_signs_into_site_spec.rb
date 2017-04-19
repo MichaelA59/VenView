@@ -10,8 +10,8 @@ feature "Sign up" do
     click_link 'Sign Up'
     fill_in 'First Name', with: 'Bob'
     fill_in 'Last Name', with: 'Billbob'
-    fill_in 'Password' , with: 'password123'
-    fill_in 'Password Confirmation' , with: 'password123'
+    fill_in 'Password', with: 'password123'
+    fill_in 'Password Confirmation', with: 'password123'
     fill_in 'Email', with: 'bob.billbob@gmail.com'
     click_button 'Sign Up'
 
@@ -32,14 +32,13 @@ feature "Sign up" do
     expect(page).to have_content "Email can't be blank"
   end
 
-
   scenario "User gives invalid information" do
     visit root_path
     click_link 'Sign Up'
     fill_in 'First Name', with: 'Bob'
     fill_in 'Last Name', with: 'Billbob'
-    fill_in 'Password' , with: '123'
-    fill_in 'Password Confirmation' , with: '321'
+    fill_in 'Password', with: '123'
+    fill_in 'Password Confirmation', with: '321'
     fill_in 'Email', with: 'bob.billbob@gmail'
     click_button 'Sign Up'
 
@@ -55,8 +54,8 @@ feature "Sign up" do
     click_link 'Sign Up'
     fill_in 'First Name', with: user.first_name
     fill_in 'Last Name', with: user.last_name
-    fill_in 'Password' , with: user.password
-    fill_in 'Password Confirmation' , with: user.password
+    fill_in 'Password', with: user.password
+    fill_in 'Password Confirmation', with: user.password
     fill_in 'Email', with: user.email
     click_button 'Sign Up'
 
@@ -75,7 +74,7 @@ feature "sign in" do
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: user.email
-    fill_in 'Password' , with: user.password
+    fill_in 'Password', with: user.password
     click_button 'Sign In'
 
     expect(page).to have_content "Welcome back! You are signed in successfully."
@@ -88,10 +87,11 @@ feature "sign in" do
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: 'brianna.billbob@gmail.com'
-    fill_in 'Password' , with: 'password123'
+    fill_in 'Password', with: 'password123'
     click_button 'Sign In'
 
-    expect(page).to have_content "We could not find your email! Please reenter or create an account."
+    expect(page).to have_content "We could not find your email!"
+    expect(page).to have_content "Please reenter or create an account."
   end
 
   scenario "user enters incorrect password" do
@@ -100,7 +100,7 @@ feature "sign in" do
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: user.email
-    fill_in 'Password' , with: 'wrongpassword'
+    fill_in 'Password', with: 'wrongpassword'
     click_button 'Sign In'
 
     expect(page).to have_content "Sorry! Wrong password. Please try again!"
@@ -118,7 +118,7 @@ feature "sign out" do
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: user.email
-    fill_in 'Password' , with: user.password
+    fill_in 'Password', with: user.password
     click_button 'Sign In'
 
     click_link "Sign Out"

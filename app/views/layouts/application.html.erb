@@ -30,8 +30,12 @@
         </div>
         <div class="top-bar-right">
           <ul class="menu sign-up">
-            <li><a href="#">Sign In</a></li>
-            <li><a href="#">Sign Up</a></li>
+            <% if user_signed_in? %>
+              <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </li>
+            <% else %>
+              <li> <%= link_to "Sign In", new_user_session_path %> </li>
+              <li> <%= link_to "Sign Up", new_user_registration_path %> </li>
+            <% end %>
           </ul>
         </div>
       </div>
