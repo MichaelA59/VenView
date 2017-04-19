@@ -15,3 +15,11 @@
  *= require foundation_and_overrides
 
  */
+
+body {
+  background-image: url(/assets/images/landing_page/landing_page_background.jpg)
+}
+
+.foo {
+  background-image: url(/assets/images/landing_page/landing_page_background.jpg)
+}
