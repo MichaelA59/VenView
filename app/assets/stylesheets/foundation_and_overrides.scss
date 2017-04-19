@@ -50,3 +50,28 @@
 //
 @include motion-ui-transitions;
 @include motion-ui-animations;
+
+$transparent: rgba(0, 0, 0, 0);
+$see-through: rgba(255, 255, 255, 0.2);
+$white: #ffffff;
+
+a {
+  color: $white;
+}
+
+.top-bar,
+.top-bar ul {
+  background-color: $transparent;
+}
+
+.top-bar {
+  border-bottom: solid 1px $see-through;
+}
+
+.top-bar-right {
+  padding: 0.5em;
+}
+
+.menu-text {
+  font-size: 2em;
+}
