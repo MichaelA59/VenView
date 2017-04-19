@@ -53,9 +53,10 @@
 
 $transparent: rgba(0, 0, 0, 0);
 $see-through: rgba(255, 255, 255, 0.2);
+$white: #ffffff;
 
 a {
-  color: #FFFFFF;
+  color: $white;
 }
 
 .top-bar,
