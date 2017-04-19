@@ -13,5 +13,51 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+ *= require application
 
  */
+
+ @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
+
+ body {
+   background: url(landing_background.jpg) no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-backgrond-size: cover;
+   background-size: cover;
+
+   font-family: "Open Sans", sans-serif;
+   color: #FFF;
+   vertical-align: middle
+ }
+
+nav {
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Montserrat, fantasy
+}
+
+.input-group-rounded .input-group-field {
+    border-radius: 5000px 0 0 5000px;
+    padding-left: 1rem;
+    margin-bottom: -18px;
+  }
+
+  .input-group-button .button {
+    border-radius:  0 5000px 5000px 0;
+    font-size: 0.8rem;
+    margin-bottom: -18px;
+  }
+}
+
+.sign-up {
+  position: absolute;
+  margin: auto;
+}
+
+.sign-up li {
+  position: relative;
+  margin-top: 2rem;
+}
