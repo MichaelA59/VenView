@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170419142350) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
 
   create_table "venues", force: :cascade do |t|
     t.string   "name",       null: false

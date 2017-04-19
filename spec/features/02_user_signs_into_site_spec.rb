@@ -47,6 +47,21 @@ feature "Sign up" do
     expect(page).to have_content "Password confirmation doesn't match Password"
     expect(page).to have_content "Email is not a valid email address"
   end
+
+  scenario "User gives email address that already has an account" do
+    user = FactoryGirl.create(:user)
+
+    visit root_path
+    click_link 'Sign Up'
+    fill_in 'First Name', with: user.first_name
+    fill_in 'Last Name', with: user.last_name
+    fill_in 'Password' , with: user.password
+    fill_in 'Password Confirmation' , with: user.password
+    fill_in 'Email', with: user.email
+    click_button 'Sign Up'
+
+    expect(page).to have_content "An account already exists for that email address!"
+  end
 end
 
 feature "sign in" do
@@ -55,12 +70,12 @@ feature "sign in" do
   # So that I can post venues and review them
 
   scenario "user signs in successfully" do
-    User.create(first_name: 'Bob', last_name: 'Billbob', password: 'password123', email: 'bob.billbob@gmail.com')
+    user = FactoryGirl.create(:user)
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', with: 'bob.billbob@gmail.com'
-    fill_in 'Password' , with: 'password123'
+    fill_in 'Email', with: user.email
+    fill_in 'Password' , with: user.password
     click_button 'Sign In'
 
     expect(page).to have_content "Welcome back! You are signed in successfully."
@@ -80,12 +95,12 @@ feature "sign in" do
   end
 
   scenario "user enters incorrect password" do
-    bob = User.create(first_name: 'Bob', last_name: 'Billbob', password: 'password123', email: 'bob.billbob@gmail.com')
+    user = FactoryGirl.create(:user)
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', with: 'bob.billbob@gmail.com'
-    fill_in 'Password' , with: 'password12'
+    fill_in 'Email', with: user.email
+    fill_in 'Password' , with: 'wrongpassword'
     click_button 'Sign In'
 
     expect(page).to have_content "Sorry! Wrong password. Please try again!"
@@ -98,12 +113,12 @@ feature "sign out" do
   # So that no one else can post venues or reviews on my behalf
 
   scenario "successful sign out" do
-    bob = User.create(first_name: 'Bob', last_name: 'Billbob', password: 'password123', email: 'bob.billbob@gmail.com')
+    user = FactoryGirl.create(:user)
 
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', with: 'bob.billbob@gmail.com'
-    fill_in 'Password' , with: 'password123'
+    fill_in 'Email', with: user.email
+    fill_in 'Password' , with: user.password
     click_button 'Sign In'
 
     click_link "Sign Out"
