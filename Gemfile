@@ -25,6 +25,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'coveralls', require: false
   gem 'foundation-rails'
+  gem 'faker'
 end
 
 

@@ -1,0 +1,32 @@
+<h1>New Venue Form</h1>
+
+<%= form_for @venue do |f| %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :url, "Website" %>
+  <%= f.text_field :url %>
+
+  <%= f.label :address, "Address" %>
+  <%= f.text_field :address %>
+
+  <%= f.label :city, "City" %>
+  <%= f.text_field :city %>
+
+  <%= f.label :state, "State" %>
+  <%= f.collection_select :state, @state_collection, :first, :last %>
+
+  <%= f.label :zip, "Zip" %>
+  <%= f.text_field :zip %>
+
+  <%= f.label :capacity, "Capacity" %>
+  <%= f.text_field :capacity %>
+
+  <%= f.submit :id=>"create_venue" %>
+<% end %>
+
+<% if @venue.errors.any? %>
+  <% @venue.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
