@@ -15,7 +15,7 @@ feature "Add reviews" do
     expect(page).to have_content 'Add New Review'
   end
 
-  scenario "I'm on the venue page and logged in and can go to new review form" do
+  scenario "I'm on venue page and logged in and can go to new review form" do
     user = FactoryGirl.create(:user)
 
     visit root_path
