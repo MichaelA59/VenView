@@ -5,7 +5,7 @@ feature "Add reviews" do
   # I want to add a review for a venue
   # So I can share my opinion
 
-  let!(:venue) {FactoryGirl.create(:venue)}
+  let!(:venue) { FactoryGirl.create(:venue) }
 
   scenario "I'm on the venue page I should see a Add New Review Button" do
     visit venue_path(venue)
