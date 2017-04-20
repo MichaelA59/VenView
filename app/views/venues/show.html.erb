@@ -6,9 +6,9 @@
 <% @reviews.each do |review| %>
 
 <%= review.title %>
-Cost:
-Sound Quality:
-Parking/Accessibility
+Cost: <%= review.cost %>
+Sound Quality: <%= review.sound_quality %>
+Parking/Accessibility <%= review.parking %>
 <%= review.body %>
 
 <% end %>
