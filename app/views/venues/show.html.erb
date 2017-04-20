@@ -1,0 +1,15 @@
+<h1><%= @venue.name %></h1>
+
+<p><a href="<%=@venue.url%>">Venue Website</a></p>
+
+<strong>Venue Address:</strong>
+<p>
+  <%= @venue.address %><br/>
+  <%= @venue.city %>, <%= @venue.state %> <%= @venue.zip %>
+</p>
+
+<strong>Capacity:</strong> <%= @venue.capacity %>
+<br>
+<br>
+
+<%= link_to 'Back to Venues', venues_path %>
