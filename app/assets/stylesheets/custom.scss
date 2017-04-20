@@ -1,6 +1,6 @@
- @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
 
- body {
+body {
    background: url(landing_background.jpg) no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
@@ -10,7 +10,7 @@
    font-family: "Open Sans", sans-serif;
    color: white;
    vertical-align: middle
- }
+}
 
 nav {
   position: relative;
@@ -19,17 +19,17 @@ nav {
 h1, h2, h3, h4, h5, h6 {
   font-family: Montserrat, fantasy
 }
+
 .input-group-rounded .input-group-field {
     border-radius: 5000px 0 0 5000px;
     padding-left: 1rem;
     margin-bottom: -18px;
-  }
+}
 
-  .input-group-button .button {
+.input-group-button .button {
     border-radius:  0 5000px 5000px 0;
     font-size: 0.8rem;
     margin-bottom: -18px;
-  }
 }
 
 .sign-up {
