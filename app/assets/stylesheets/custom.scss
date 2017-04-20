@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
+$white: #ffffff;
+$black: #000000;
 
 body {
    background: image-url('landing_background.jpg') no-repeat center center fixed;
@@ -43,9 +45,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 label {
-  color: white;
+  color: $white;
 }
 
 #create_venue {
-  color: black;
+  color: $black;
+}
+
+input {
+  color: $white;
 }
