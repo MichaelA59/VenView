@@ -1,0 +1,14 @@
+<%= @venue.name %>
+<%= @venue.address %>
+
+<%= link_to 'Add New Review', new_venue_review_path(@venue) %>
+
+<% @reviews.each do |review| %>
+
+<%= review.title %>
+Cost:
+Sound Quality:
+Parking/Accessibility
+<%= review.body %>
+
+<% end %>
