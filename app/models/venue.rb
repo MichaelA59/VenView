@@ -57,7 +57,7 @@ class Venue < ApplicationRecord
     ["WI", "Wisconsin"],
     ["WV", "West Virginia"],
     ["WY", "Wyoming"]
-  ]
+  ].freeze
 
   validates :name, presence: true
 

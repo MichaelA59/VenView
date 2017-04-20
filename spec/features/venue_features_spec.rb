@@ -18,7 +18,7 @@ feature "Venues" do
     expect(page).to have_content "New Venue Form"
 
     fill_in 'Name', with: 'Horse of Blues'
-    fill_in 'Website', with: 'http://www.horseofblues.com'
+    fill_in 'Website', with: 'http://www.bluehorse.com'
     fill_in 'Address', with: '123 Fake Street'
     fill_in 'City', with: 'Slummerville'
     select 'Massachusetts', from: 'State'
@@ -29,7 +29,7 @@ feature "Venues" do
 
     expect(page).to have_content "Venue added successfully!"
     expect(page).to have_content "Horse of Blues"
-    expect(page).to have_link('Venue Website', href:"http://www.horseofblues.com")
+    expect(page).to have_link('Venue Website', href: "http://www.bluehorse.com")
     expect(page).to have_content "123 Fake Street"
     expect(page).to have_content "Slummerville"
     expect(page).to have_content "MA"
@@ -45,7 +45,7 @@ feature "Venues" do
     click_link venue_one.name
 
     expect(page).to have_content venue_one.name
-    expect(page).to have_link('Venue Website', href:venue_one.url)
+    expect(page).to have_link('Venue Website', href: venue_one.url)
     expect(page).to have_content venue_one.address
     expect(page).to have_content venue_one.city
     expect(page).to have_content venue_one.state
@@ -73,9 +73,8 @@ feature "Venues" do
     expect(page).to have_content("Address can't be blank")
     expect(page).to have_content("City can't be blank")
     expect(page).to have_content("Zip can't be blank")
-    expect(page).to have_content("Zip is the wrong length (should be 5 characters)")
+    expect(page).to have_content("Zip is the wrong length")
     expect(page).to have_content("Zip is not a number")
-
   end
 
   scenario "Failing to add a venue with an invalid URL" do
@@ -92,6 +91,5 @@ feature "Venues" do
 
     click_button 'Create Venue'
     expect(page).to have_content("Url is invalid")
-    
   end
 end

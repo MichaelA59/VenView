@@ -1,5 +1,4 @@
 class VenuesController < ApplicationController
-
   def index
     @venues = Venue.order('name ASC')
   end
@@ -26,9 +25,16 @@ class VenuesController < ApplicationController
   end
 
   private
+
   def venue_params
-    params.require(:venue).permit(:name, :url, :address, :city, :state, :zip, :capacity)
+    params.require(:venue).permit(
+      :name,
+      :url,
+      :address,
+      :city,
+      :state,
+      :zip,
+      :capacity
+    )
   end
-
-
 end
