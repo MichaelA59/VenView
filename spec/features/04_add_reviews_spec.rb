@@ -85,21 +85,4 @@ feature "Add reviews" do
     expect(page).to have_content 'Email'
     expect(page).to have_content 'Password'
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
