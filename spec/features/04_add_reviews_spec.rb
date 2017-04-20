@@ -5,12 +5,10 @@ feature "Add reviews" do
   # I want to add a review for a venue
   # So I can share my opinion
 
-  before(:each) do
-    @venue = FactoryGirl.create(:venue)
-  end
+  let!(:venue) {FactoryGirl.create(:venue)}
 
   scenario "I'm on the venue page I should see a Add New Review Button" do
-    visit venue_path(@venue)
+    visit venue_path(venue)
 
     expect(page).to have_content 'Add New Review'
   end
@@ -24,7 +22,7 @@ feature "Add reviews" do
     fill_in 'Password', with: user.password
     click_button 'Sign In'
 
-    visit venue_path(@venue)
+    visit venue_path(venue)
 
     click_link 'Add New Review'
     expect(page).to have_content 'New Review Form'
@@ -44,7 +42,7 @@ feature "Add reviews" do
     fill_in 'Password', with: user.password
     click_button 'Sign In'
 
-    visit venue_path(@venue)
+    visit venue_path(venue)
     click_link 'Add New Review'
 
     fill_in 'Title', with: 'The new place'
@@ -67,21 +65,21 @@ feature "Add reviews" do
     fill_in 'Password', with: user.password
     click_button 'Sign In'
 
-    visit venue_path(@venue)
+    visit venue_path(venue)
     click_link 'Add New Review'
 
     fill_in 'Comments', with: 'This is the new place that everyone likes'
     click_button 'Submit Review'
 
     expect(page).to have_content 'Title can\'t be blank'
-    expect(page).not_to have_content @venue.name
+    expect(page).not_to have_content venue.name
   end
 
   scenario "I don't see the new review form if I'm not logged in" do
-    visit venue_path(@venue)
+    visit venue_path(venue)
     click_link 'Add New Review'
 
-    expect(page).not_to have_content @venue.name
+    expect(page).not_to have_content venue.name
     expect(page).to have_content 'Email'
     expect(page).to have_content 'Password'
   end
