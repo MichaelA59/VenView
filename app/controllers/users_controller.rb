@@ -12,9 +12,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.email = params[:user][:email]
     @user.avatar_url = params[:user][:avatar_url]
-binding.pry
-    if @user.save!
-      flash[:notice]='Profile Has Been Updated'
+
+    if @user.save
+      flash[:notice]='Success! Your profile has been updated.'
       redirect_to @user
     else
       @user.email = params[:user][:email]

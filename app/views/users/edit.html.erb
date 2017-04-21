@@ -8,7 +8,7 @@
   <%= f.label :avatar_url, "Avatar" %>
   <%= f.text_field :avatar_url, :input_html => { :value => @user.avatar_url} %>
 
-  <%= f.submit :id=>"Update Profile" %>
+  <%= f.submit "Update Profile", :id=>"Update Profile" %>
 <% end %>
 
 <% if @user.errors.any? %>

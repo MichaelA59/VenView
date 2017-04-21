@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-feature "Delete account" do
+feature "User deletes account" do
   # As an authenticated user
   # I want to delete my account
   # So that my information is no longer retained by the app
 
-  scenario "User user confirms that they want to delete their account" do
+  scenario "User deletes their own account via a button on their account" do
     user = FactoryGirl.create(:user)
 
     visit root_path
@@ -19,10 +19,7 @@ feature "Delete account" do
     expect(page).to have_content user.last_name
     expect(page).to have_content user.email
 
-    # page.accept_confirm do
-    #   click_link "Delete Account"
-    # end
-
-    # expect(page).to have_content "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+    expect(page).to have_content
+      "Bye! Your account has been successfully cancelled."
   end
 end
