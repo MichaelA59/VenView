@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :reviews, only: [:destroy]
 
   devise_for :users
+  resources :venues, except: [:destroy, :edit, :update]
 end

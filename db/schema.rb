@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170420175107) do
     t.string   "zip",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "capacity"
   end
 
 end
