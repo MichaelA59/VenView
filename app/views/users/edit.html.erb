@@ -1,0 +1,18 @@
+<h1> Edit Your Profile </h1>
+
+<%= form_for @user do |f| %>
+
+  <%= f.label :email, "Email" %>
+  <%= f.email_field :email, autofocus: true, :input_html => { :value => @user.email} %>
+
+  <%= f.label :avatar_url, "Avatar" %>
+  <%= f.text_field :avatar_url, :input_html => { :value => @user.avatar_url} %>
+
+  <%= f.submit :id=>"Update Profile" %>
+<% end %>
+
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
