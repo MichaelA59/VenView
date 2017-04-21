@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
 $white: #ffffff;
 $black: #000000;
+$grey-shadow: #999;
 $venue_form_background_color: rgba(63, 72, 84, 1);
 $input_background_color: rgba(255, 255, 255, 0.54);
 $low_opacity_white: rgba(255, 255, 255, 0.22);
@@ -27,15 +28,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .input-group-rounded .input-group-field {
-    border-radius: 5000px 0 0 5000px;
-    padding-left: 1rem;
-    margin-bottom: -18px;
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+  margin-bottom: -18px;
 }
 
 .input-group-button .button {
-    border-radius:  0 5000px 5000px 0;
-    font-size: 0.8rem;
-    margin-bottom: -18px;
+  border-radius:  0 5000px 5000px 0;
+  font-size: 0.8rem;
+  margin-bottom: -18px;
 }
 
 .sign-up {
@@ -98,25 +99,24 @@ input {
   }
 }
 
-/* Styling for Search Button Starts Here */
-input[type=text].searchBar {
-    width: 5em;
-    padding: 15px;
-    color: black;
-    font-size: 1em;
-    border-radius: 50px;
-    border: none;
-    -webkit-transition: all ease-in-out .3s;
-    -moz-transition: all ease-in-out .3s;
-    background: white;
+// Styling for Search Button Starts Here //
+.search-bar {
+  width: 5em;
+  padding: 15px;
+  color: black;
+  font-size: 1em;
+  border-radius: 50px;
+  border: none;
+  -webkit-transition: all ease-in-out .3s;
+  -moz-transition: all ease-in-out .3s;
+  background: white;
 }
 
-input[type=text].searchBar:focus {
-    width: 165px;
-    outline: none;
-    background: #fff;
-    border:1px solid #999;
-    color:black;
-    background: white;
+.search-bar:focus {
+  width: 165px;
+  outline: none;
+  border: 1px solid $grey-shadow;
+  color: $black;
+  background: $white;
 }
-/* Search Bar Styling Ends ^^ */
+// Search Bar Styling Ends ^^ //
