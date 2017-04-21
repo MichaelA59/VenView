@@ -1,8 +1,17 @@
-<h1>New Venue Form</h1>
+<div class='form_box'>
 
-<%= form_for @venue do |f| %>
-  <%= f.label :name, "Name" %>
-  <%= f.text_field :name %>
+<h1 class='new_venue_header'>Add a Venue</h1>
+
+<%= form_for @venue, :html => { :class => 'venue_form'} do |f| %>
+
+  <% if @venue.errors.any? %>
+    <% @venue.errors.full_messages.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  <% end %>
+
+  <%= f.label :name, "Name"%>
+  <%= f.text_field :name, :autofocus=>true%>
 
   <%= f.label :url, "Website" %>
   <%= f.text_field :url %>
@@ -21,12 +30,18 @@
 
   <%= f.label :capacity, "Capacity" %>
   <%= f.text_field :capacity %>
+  <br>
 
-  <%= f.submit :id=>"create_venue" %>
+  <div class='submit_container'>
+    <%= f.submit :id=>"create_venue" %>
+  </div>
 <% end %>
+</div>
 
-<% if @venue.errors.any? %>
-  <% @venue.errors.full_messages.each do |error| %>
-    <p><%= error %></p>
-  <% end %>
-<% end %>
+
+<!--
+
+    <label class="error">Error
+       <input type="text" class="error" />
+    </label>
+    <small class="error">Invalid entry</small> -->
