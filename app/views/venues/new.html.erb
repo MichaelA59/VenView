@@ -1,8 +1,8 @@
-<div class='form_box'>
+<div class='form-box'>
 
-<h1 class='new_venue_header'>New Venue Form</h1>
+<h1 class='new-venue-header'>New Venue Form</h1>
 
-<%= form_for @venue, :html => { :class => 'venue_form'} do |f| %>
+<%= form_for @venue, :html => { :class => 'venue-form'} do |f| %>
 
   <%= f.label :name, "Name"%>
   <%= f.text_field :name, :autofocus=>true %>
@@ -32,8 +32,8 @@
   <%= f.text_field :capacity %>
   <br>
 
-  <div class='submit_container'>
-    <%= f.submit :id=>"create_venue" %>
+  <div class='submit-container'>
+    <%= f.submit :id=>"create-venue" %>
   </div>
 <% end %>
 </div>
