@@ -73,4 +73,6 @@ class Venue < ApplicationRecord
     message: "is not a number"
   }
   validates :zip, length: { is: 5 }
+
+  has_many :reviews
 end
