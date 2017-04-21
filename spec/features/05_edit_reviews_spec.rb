@@ -85,7 +85,7 @@ feature "Edit reviews" do
     choose('review_sound_quality_4')
     choose('review_parking_4')
     fill_in 'Comments', with: 'This is the new place that everyone likes'
-    click_button 'Submit Review'
+    click_button 'Submit Changes'
 
     expect(page).to have_content 'The new place'
     expect(page).to have_content 'This is the new place that everyone likes'
@@ -105,7 +105,7 @@ feature "Edit reviews" do
     click_link 'Edit Review'
 
     fill_in 'Title', with: ''
-    click_button 'Submit Review'
+    click_button 'Submit Changes'
 
     expect(page).to have_content 'Title can\'t be blank'
     expect(page).not_to have_content venue1.name
