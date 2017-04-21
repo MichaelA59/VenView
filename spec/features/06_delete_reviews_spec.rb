@@ -11,16 +11,16 @@ feature "Delete reviews" do
   let!(:user2) { FactoryGirl.create(:user) }
   let!(:review1) do
     Review.create(
-    venue_id: venue1.id, user_id: user1.id,
-    title: 'This is a great place', cost: 3, sound_quality: 3, parking: 4,
-    body: 'This is a great place to check out'
+      venue_id: venue1.id, user_id: user1.id,
+      title: 'This is a great place', cost: 3, sound_quality: 3, parking: 4,
+      body: 'This is a great place to check out'
     )
   end
   let!(:review2) do
     Review.create(
-    venue_id: venue2.id, user_id: user2.id,
-    title: 'I hate this place', cost: 3, sound_quality: 0, parking: 4,
-    body: 'Don\'t go here'
+      venue_id: venue2.id, user_id: user2.id,
+      title: 'I hate this place', cost: 3, sound_quality: 0, parking: 4,
+      body: 'Don\'t go here'
     )
   end
 
