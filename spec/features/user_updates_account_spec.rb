@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "User updates account" do
+feature "User updates account:" do
   # As an authenticated user
   # I want to delete my account
   # So that my information is no longer retained by the app
@@ -16,13 +16,14 @@ feature "User updates account" do
 
     click_button 'Sign In'
     click_link "Signed In As #{user.first_name}"
+
     click_link "Edit Profile"
 
     expect(page).to have_content "Edit Your Profile"
 
     fill_in 'Email', with: "foo@foo.com"
 
-    click_link 'Update Profile'
+    click_button 'Update Profile'
 
     expect(page).to have_content "Success! Your profile has been updated."
     expect(page).to have_content "foo@foo.com"
@@ -42,10 +43,10 @@ feature "User updates account" do
 
     fill_in "Avatar", with: "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg"
 
-    click_link "Update Profile"
+    click_button "Update Profile"
 
     expect(page).to have_content "Success! Your profile has been updated."
-    expect(page).to have_xpath("//img[@src='http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg]")
+    expect(page).to have_xpath("//img[@src='http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg']")
   end
 
   scenario "User unsucessfully attempts to updates their own account with an invalid email" do
@@ -58,13 +59,12 @@ feature "User updates account" do
 
     click_button 'Sign In'
     click_link "Signed In As #{user.first_name}"
-    click_link "Update Profile"
+    click_link "Edit Profile"
 
     fill_in 'Email', with: "foo@foo"
 
-    click_link "Update Profile"
+    click_button "Update Profile"
 
-    expect(page).to have_content "foo@foo.com"
     expect(page).to have_content "Email is not a valid email address"
   end
 
