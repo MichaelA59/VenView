@@ -5,10 +5,16 @@
 
 <% @reviews.each do |review| %>
 
-<%= review.title %>
-Cost: <%= review.cost %>
-Sound Quality: <%= review.sound_quality %>
-Parking/Accessibility <%= review.parking %>
-<%= review.body %>
+  <%= review.title %>
+  Cost: <%= review.cost %>
+  Sound Quality: <%= review.sound_quality %>
+  Parking/Accessibility <%= review.parking %>
+  <%= review.body %>
+
+  <% if current_user && review.user_id == current_user.id %>
+    <%= link_to 'Edit Review', edit_venue_review_path(@venue, review) %>
+    <%= link_to 'Delete Review', review_path(review), method: :delete,
+    data: { confirm: 'Are you sure you want to delete this review?' } %>
+  <% end %>
 
 <% end %>
