@@ -45,38 +45,16 @@ feature "Delete reviews" do
   end
 
   scenario "On venue page and logged in, I can successfully delete a review" do
-    # visit root_path
-    # click_link 'Sign In'
-    # fill_in 'Email', with: user1.email
-    # fill_in 'Password', with: user1.password
-    # click_button 'Sign In'
-    #
-    # visit venue_path(venue1)
-    #
-    # click_link 'Delete Review'
-    #
-    # page.accept_confirm do
-    #   click_button('OK')
-    # end
-    #
-    # expect(page).not_to have_content review1.title
-  end
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', with: user1.email
+    fill_in 'Password', with: user1.password
+    click_button 'Sign In'
 
-  scenario "On venue page and logged in, I can successfully cancel deletion" do
-    # visit root_path
-    # click_link 'Sign In'
-    # fill_in 'Email', with: user1.email
-    # fill_in 'Password', with: user1.password
-    # click_button 'Sign In'
-    #
-    # visit venue_path(venue1)
-    #
-    # click_link 'Delete Review'
-    #
-    # page.accept_confirm do
-    #   click_button('OK')
-    # end
-    #
-    # expect(page).to have_content review1.title
+    visit venue_path(venue1)
+
+    click_link 'Delete Review'
+
+    expect(page).not_to have_content review1.title
   end
 end
