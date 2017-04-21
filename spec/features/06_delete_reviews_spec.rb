@@ -9,12 +9,16 @@ feature "Delete reviews" do
   let!(:venue2) { FactoryGirl.create(:venue) }
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user) }
-  let!(:review1) { Review.create(venue_id: venue1.id, user_id: user1.id,
-  title: 'This is a great place', cost: 3, sound_quality: 3, parking: 4,
-  body: 'This is a great place to check out') }
-  let!(:review2) { Review.create(venue_id: venue2.id, user_id: user2.id,
-  title: 'I hate this place', cost: 3, sound_quality: 0, parking: 4,
-  body: 'Don\'t go here') }
+  let!(:review1) do
+    Review.create(venue_id: venue1.id, user_id: user1.id,
+    title: 'This is a great place', cost: 3, sound_quality: 3, parking: 4,
+    body: 'This is a great place to check out')
+  end
+  let!(:review2) do
+    Review.create(venue_id: venue2.id, user_id: user2.id,
+    title: 'I hate this place', cost: 3, sound_quality: 0, parking: 4,
+    body: 'Don\'t go here')
+  end
 
   scenario "I'm on the venue page I should see an delete link for my reviews" do
     visit root_path
@@ -28,7 +32,7 @@ feature "Delete reviews" do
     expect(page).to have_content 'Delete Review'
   end
 
-  scenario "I'm on the venue page I should not see an delete link for other user's reviews" do
+  scenario "On venue page, I cannot delete other user's reviews" do
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: user1.email
@@ -40,7 +44,7 @@ feature "Delete reviews" do
     expect(page).not_to have_content 'Delete Review'
   end
 
-  scenario "I'm on venue page and logged in and can successfully delete a review" do
+  scenario "On venue page and logged in, I can successfully delete a review" do
     # visit root_path
     # click_link 'Sign In'
     # fill_in 'Email', with: user1.email
@@ -58,7 +62,7 @@ feature "Delete reviews" do
     # expect(page).not_to have_content review1.title
   end
 
-  scenario "I'm on venue page and logged in and can successfully cancel deletion" do
+  scenario "On venue page and logged in, I can successfully cancel deletion" do
     # visit root_path
     # click_link 'Sign In'
     # fill_in 'Email', with: user1.email

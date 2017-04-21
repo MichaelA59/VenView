@@ -9,13 +9,16 @@ feature "Edit reviews" do
   let!(:venue2) { FactoryGirl.create(:venue) }
   let!(:user1) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user) }
-  let!(:review1) { Review.create(venue_id: venue1.id, user_id: user1.id,
-  title: 'This is a great place', cost: 3, sound_quality: 3, parking: 4,
-  body: 'This is a great place to check out') }
-  let!(:review2) { Review.create(venue_id: venue2.id, user_id: user2.id,
-  title: 'I hate this place', cost: 3, sound_quality: 0, parking: 4,
-  body: 'Don\'t go here') }
-
+  let!(:review1) do
+    Review.create(venue_id: venue1.id, user_id: user1.id,
+    title: 'This is a great place', cost: 3, sound_quality: 3, parking: 4,
+    body: 'This is a great place to check out')
+  end
+  let!(:review2) do
+    Review.create(venue_id: venue2.id, user_id: user2.id,
+    title: 'I hate this place', cost: 3, sound_quality: 0, parking: 4,
+    body: 'Don\'t go here')
+  end
 
   scenario "I'm on the venue page I should see an edit link for my reviews" do
     visit root_path
@@ -29,7 +32,7 @@ feature "Edit reviews" do
     expect(page).to have_content 'Edit Review'
   end
 
-  scenario "I'm on the venue page I should not see an edit link for other user's reviews" do
+  scenario "On the venue page, I cannot edit other user's reviews" do
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: user1.email
