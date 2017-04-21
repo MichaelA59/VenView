@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
+@import 'venue_form';
+@import 'nav_search_bar';
+
 $white: #ffffff;
 $black: #000000;
 $grey-shadow: #999;
@@ -15,7 +18,7 @@ body {
    background-size: cover;
 
    font-family: "Open Sans", sans-serif;
-   color: white;
+   color: $white;
    vertical-align: middle
 }
 
@@ -62,61 +65,3 @@ label {
 input {
   color: $white;
 }
-
-.form_box {
-  border: solid 2px white;
-  width: 50%;
-  margin: 2% 25%;
-  padding: 2em;
-  background-color: $venue_form_background_color;
-  border-radius: 6px;
-  border-color: $low_opacity_white;
-  box-shadow: 5px 5px 15px #2d2d2d;
-  input {
-    background-color: $input_background_color;
-    border-radius: 5px;
-    border-color: $low_opacity_white;
-  }
-  select {
-    background-color: $input_background_color;
-    border-radius: 5px;
-    border-color: $low_opacity_white;
-  }
-  .submit_container {
-    text-align: center;
-  }
-
-  #create_venue {
-    color: $black;
-    font-size: 1.5em;
-    font-weight: 400;
-    text-align: center;
-    text-shadow: $text-shadow;
-  }
-  .error {
-    font-size: .8em;
-    text-shadow: $text-shadow;
-  }
-}
-
-// Styling for Search Button Starts Here //
-.search-bar {
-  width: 5em;
-  padding: 15px;
-  color: black;
-  font-size: 1em;
-  border-radius: 50px;
-  border: none;
-  -webkit-transition: all ease-in-out .3s;
-  -moz-transition: all ease-in-out .3s;
-  background: white;
-}
-
-.search-bar:focus {
-  width: 165px;
-  outline: none;
-  border: 1px solid $grey-shadow;
-  color: $black;
-  background: $white;
-}
-// Search Bar Styling Ends ^^ //
