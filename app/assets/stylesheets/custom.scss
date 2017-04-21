@@ -96,3 +96,26 @@ input {
     text-shadow: $text-shadow;
   }
 }
+
+/* Styling for Search Button Starts Here */
+input[type=text].searchBar {
+    width: 5em;
+    padding: 15px;
+    color: black;
+    font-size: 1em;
+    border-radius: 50px;
+    border: none;
+    -webkit-transition: all ease-in-out .3s;
+    -moz-transition: all ease-in-out .3s;
+    background: white;
+}
+
+input[type=text].searchBar:focus {
+    width: 165px;
+    outline: none;
+    background: #fff;
+    border:1px solid #999;
+    color:black;
+    background: white;
+}
+/* Search Bar Styling Ends ^^ */
