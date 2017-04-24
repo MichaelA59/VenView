@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
+$white: #ffffff;
 
 body {
   background: url(landing_background.jpg) no-repeat center center fixed;
@@ -8,7 +9,7 @@ body {
   background-size: cover;
 
   font-family: "Open Sans", sans-serif;
-  color: #FFF;
+  color: $white;
   vertical-align: middle
 }
 
@@ -33,11 +34,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .sign-up {
-  position: absolute;
   margin: auto;
+  position: absolute;
 }
 
 .sign-up li {
-  position: relative;
   margin-top: 2rem;
+  position: relative;
 }
