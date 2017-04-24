@@ -1,4 +1,4 @@
-<% if current_user.admin? %>
+<% if current_user && current_user.admin? %>
   <%= link_to "Update Venue", edit_venue_path(@venue) %>
   <%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
 <% end %>

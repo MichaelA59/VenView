@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-  before_action :authorize_user, except: [:index, :show]
+  before_action :authorize_user, only: [:new, :create]
   before_action :authorize_admin, only: [:edit, :update, :destroy]
 
   def index
@@ -62,6 +62,12 @@ class VenuesController < ApplicationController
       :zip,
       :capacity
     )
+  end
+
+  def authorize_user
+    if !user_signed_in?
+      raise ActionController::RoutingError.new("NotFound")
+    end
   end
 
   def authorize_admin
