@@ -35,10 +35,8 @@ end
 
 10.times do
   foo = Review.create
-
   foo.title = Faker::ChuckNorris.fact
   foo.user_id = 1 + rand(User.all.size)
   foo.venue_id = 1 + rand(Venue.all.size)
-
   foo.save!
 end

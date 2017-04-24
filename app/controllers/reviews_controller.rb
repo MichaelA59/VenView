@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.venue = @venue
     @review.user = current_user
+    @review.venue_name = @venue.name
 
     if @review.save
       redirect_to venue_path(@venue)

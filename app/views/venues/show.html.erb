@@ -12,7 +12,8 @@
 <br>
 <br>
 
-<%= link_to 'Add New Review', new_venue_review_path(@venue) %><br/>
+<%= link_to 'Add New Review', new_venue_review_path(@venue), class: 'button' %><br/>
+<hr />
 
 <% @reviews.each do |review| %>
   <div class="row">
@@ -55,10 +56,11 @@
     </div>
     <div class="columns small-2">
       <% if current_user && review.user_id == current_user.id %>
-        <%= link_to 'Edit Review', edit_review_path(review) %><br/>
-        <%= link_to 'Delete Review', review_path(review), method: :delete %>
+        <%= link_to 'Edit Review', edit_venue_review_path(@venue, review), class: 'button' %><br/>
+        <%= link_to 'Delete Review', review_path(review), method: :delete, class: 'button' %>
       <% end %>
     </div>
+    <hr />
     </div>
   </div>
   <br/>
