@@ -7,9 +7,9 @@ class VotesController < ApplicationController
   def update
     this_vote = Vote.find(params[:id])
     this_vote.up_or_down = if this_vote.up_or_down === "upvote"
-                            "downvote"
+                             "downvote"
                            else # otherwise, this_vote.up_or_down === "downvote"
-                            "upvote"
+                             "upvote"
                            end
     this_vote.save
     redirect_to venue_path(this_vote.review.venue)

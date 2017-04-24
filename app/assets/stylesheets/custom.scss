@@ -4,32 +4,38 @@ $black: #000000;
 
 body {
   background: image-url("landing_background.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  -webkit-background-size: cover;
   background-size: cover;
-
-  font-family: "Open Sans", sans-serif;
   color: $white;
-  vertical-align: middle
+  font-family: "Open Sans", sans-serif;
+  vertical-align: middle;
 }
 
 nav {
   position: relative;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: Montserrat, fantasy
 }
 
 .input-group-rounded .input-group-field {
-  border-radius: 5000px 0px 0px 5000px;
+  border-top-left-radius: 5000px;
+  border-bottom-left-radius: 5000px;
   margin-bottom: -18px;
   padding-left: 1rem;
 }
 
 .input-group-button .button {
-  border-radius:  0px 5000px 5000px 0px;
+  border-top-right-radius: 5000px;
+  border-bottom-right-radius: 5000px;
   font-size: 0.8rem;
   margin-bottom: -18px;
 }
