@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:edit, :update, :destroy]
 
-  resources :users, only: [:show, :edit, :update]
+  resources :votes, only: [:create, :update, :destroy]
 
   devise_for :users
+  resources :users, only: [:show, :edit, :update]
 end
