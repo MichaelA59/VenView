@@ -1,32 +1,39 @@
-<h1>New Venue Form</h1>
+<div class='form-box'>
 
-<%= form_for @venue do |f| %>
-  <%= f.label :name, "Name" %>
-  <%= f.text_field :name %>
+<h1 class='new-venue-header'>New Venue Form</h1>
+
+<%= form_for @venue, :html => { :class => 'venue-form'} do |f| %>
+
+  <%= f.label :name, "Name"%>
+  <%= f.text_field :name, :autofocus=>true %>
+  <p class='error'><%= show_errors(@venue, :name) %></p>
 
   <%= f.label :url, "Website" %>
   <%= f.text_field :url %>
+  <p class='error'><%= show_errors(@venue, :url) %></p>
 
   <%= f.label :address, "Address" %>
   <%= f.text_field :address %>
+  <p class='error'><%= show_errors(@venue, :address) %></p>
 
   <%= f.label :city, "City" %>
   <%= f.text_field :city %>
+  <p class='error'><%= show_errors(@venue, :city) %></p>
 
   <%= f.label :state, "State" %>
   <%= f.collection_select :state, @state_collection, :first, :last %>
+  <p class='error'><%= show_errors(@venue, :state) %></p>
 
   <%= f.label :zip, "Zip" %>
   <%= f.text_field :zip %>
+  <p class='error'><%= show_errors(@venue, :zip) %></p>
 
   <%= f.label :capacity, "Capacity" %>
   <%= f.text_field :capacity %>
+  <br>
 
-  <%= f.submit :id=>"create_venue" %>
+  <div class='submit-container'>
+    <%= f.submit :id=>"create-venue" %>
+  </div>
 <% end %>
-
-<% if @venue.errors.any? %>
-  <% @venue.errors.full_messages.each do |error| %>
-    <p><%= error %></p>
-  <% end %>
-<% end %>
+</div>
