@@ -19,7 +19,6 @@ feature "User deletes account" do
     expect(page).to have_content user.last_name
     expect(page).to have_content user.email
 
-    expect(page).to have_content
-      "Bye! Your account has been successfully cancelled."
+    expect(page).to have_content "Bye!"
   end
 end
