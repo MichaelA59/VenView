@@ -2,15 +2,14 @@
 $white: #ffffff;
 
 body {
-  background: url(landing_background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
+  background: url("landing_background.jpg") no-repeat center center fixed;
   -moz-background-size: cover;
   -o-background-size: cover;
+  -webkit-background-size: cover;
   background-size: cover;
-
-  font-family: "Open Sans", sans-serif;
   color: $white;
-  vertical-align: middle
+  font-family: "Open Sans", sans-serif;
+  vertical-align: middle;
 }
 
 nav {
@@ -27,15 +26,15 @@ h6 {
 }
 
 .input-group-rounded .input-group-field {
-  border-top-left-radius: 5000px;
   border-bottom-left-radius: 5000px;
+  border-top-left-radius: 5000px;
   margin-bottom: -18px;
   padding-left: 1rem;
  }
 
 .input-group-button .button {
-  border-top-right-radius: 5000px;
   border-bottom-right-radius: 5000px;
+  border-top-right-radius: 5000px;
   font-size: 0.8rem;
   margin-bottom: -18px;
 }
