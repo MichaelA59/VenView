@@ -1,5 +1,4 @@
 class VotesController < ApplicationController
-
   def create
     new_vote = Vote.create(vote_params)
     redirect_to venue_path(new_vote.review.venue)
@@ -7,10 +6,10 @@ class VotesController < ApplicationController
 
   def update
     this_vote = Vote.find(params[:id])
-    if this_vote.up_or_down === "upvote"
-      this_vote.up_or_down = "downvote"
-    else #otherwise, this_vote.up_or_down === "downvote"
-      this_vote.up_or_down = "upvote"
+    this_vote.up_or_down =  if this_vote.up_or_down === "upvote"
+      "downvote"
+    else # otherwise, this_vote.up_or_down === "downvote"
+      "upvote"
     end
     this_vote.save
     redirect_to venue_path(this_vote.review.venue)
@@ -32,5 +31,4 @@ class VotesController < ApplicationController
       :up_or_down
     )
   end
-
 end

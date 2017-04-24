@@ -5,7 +5,7 @@ feature "User updates account:" do
   # I want to delete my account
   # So that my information is no longer retained by the app
 
-  scenario "User successfully updates their own account with a new email address" do
+  scenario "User successfully updates their account with new email address" do
     user = FactoryGirl.create(:user)
 
     visit root_path
@@ -29,7 +29,7 @@ feature "User updates account:" do
     expect(page).to have_content "foo@foo.com"
   end
 
-  scenario "User successfully updates their own account with a new avatar url" do
+  scenario "User successfully updates their account with a new avatar url" do
     user = FactoryGirl.create(:user)
 
     visit root_path
@@ -49,7 +49,7 @@ feature "User updates account:" do
     expect(page).to have_xpath("//img[@src='http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg']")
   end
 
-  scenario "User unsucessfully attempts to updates their own account with an invalid email" do
+  scenario "User unsucessfully tries to update account with invalid email" do
     user = FactoryGirl.create(:user)
 
     visit root_path

@@ -1,5 +1,4 @@
 class CreateVotes < ActiveRecord::Migration[5.0]
-
   # One review has many votes (one from each user).
   # One user has many votes (one for each review).
   # An individual vote record belongs to one user and one review.

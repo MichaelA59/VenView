@@ -19,6 +19,8 @@ feature "User deletes account" do
     expect(page).to have_content user.last_name
     expect(page).to have_content user.email
 
+    click_link "Delete Account"
+
     expect(page).to have_content "Bye!"
   end
 end

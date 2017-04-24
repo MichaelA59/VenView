@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-
   def show
-   @user = User.find(params[:id])
-   @reviews = @user.reviews
+    @user = User.find(params[:id])
+    @reviews = @user.reviews
   end
 
   def edit
@@ -15,7 +14,7 @@ class UsersController < ApplicationController
     @user.avatar_url = params[:user][:avatar_url]
 
     if @user.save
-      flash[:notice]='Success! Your profile has been updated.'
+      flash[:notice] = 'Success! Your profile has been updated.'
       redirect_to @user
     else
       @user.email = params[:user][:email]
@@ -23,5 +22,4 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
 end
