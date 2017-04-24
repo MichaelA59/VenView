@@ -12,21 +12,22 @@
 <br>
 <br>
 
-<%= link_to 'Add New Review', new_venue_review_path(@venue) %>
+<%= link_to 'Add New Review', new_venue_review_path(@venue), class: 'button' %>
+<hr/>
 
 <% @reviews.each do |review| %>
 
-  <%= review.title %>
-  Cost: <%= review.cost %>
-  Sound Quality: <%= review.sound_quality %>
-  Parking/Accessibility <%= review.parking %>
-  <%= review.body %>
+  <%= review.title %>  <br/>
+  Cost: <%= review.cost %>  <br/>
+  Sound Quality: <%= review.sound_quality %>  <br/>
+  Parking/Accessibility <%= review.parking %>  <br/>
+  <%= review.body %>  <br/>
 
   <% if current_user && review.user_id == current_user.id %>
-    <%= link_to 'Edit Review', edit_venue_review_path(@venue, review) %>
-    <%= link_to 'Delete Review', review_path(review), method: :delete %>
+    <%= link_to 'Edit Review', edit_venue_review_path(@venue, review) , class: 'button'%>
+    <%= link_to 'Delete Review', review_path(review), method: :delete, class: 'button' %>
   <% end %>
-
+ <hr/>
 <% end %>
 
 <%= link_to 'Back to Venues', venues_path %>
