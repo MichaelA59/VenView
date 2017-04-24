@@ -20,5 +20,27 @@ require 'faker'
   foo.capacity = Faker::Number.between(5000, 30000)
 
   foo.save!
+end
 
+5.times do
+  foo = User.create
+
+  foo.first_name = Faker::Name.first_name
+  foo.last_name = Faker::Name.last_name
+  foo.email = Faker::Internet.email
+  foo.password = "password"
+
+  foo.save!
+end
+
+10.times do
+  current_venue_id = 1 + rand(Venue.all.size)
+  foo = Review.create
+
+  foo.title = Faker::ChuckNorris.fact
+  foo.user_id = 1 + rand(User.all.size)
+  foo.venue_id = current_venue_id
+  foo.venue_name = Venue.find(current_venue_id).name
+
+  foo.save!
 end
