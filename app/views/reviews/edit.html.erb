@@ -1,3 +1,45 @@
 <h1> Edit Review Form </h1>
 
-<%= render 'form', locals: { venue: @venue, review: @review, ratings_collection: @ratings_collection } %>
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@review.errors.count, "error") %> Please complete the form
+    </h2>
+    <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for (@review) do |f| %>
+
+  <div class='field'>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :cost %>
+    <%= f.collection_radio_buttons :cost, @ratings_collection, :first, :last %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :sound_quality, 'Sound Quality' %>
+    <%= f.collection_radio_buttons :sound_quality, @ratings_collection, :first, :last %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :parking, 'Parking/Accessibility' %>
+    <%= f.collection_radio_buttons :parking, @ratings_collection, :first, :last %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :body, 'Comments' %>
+    <%= f.text_area :body %>
+  </div>
+
+  <%= f.submit "Submit Changes" %>
+
+<% end %>

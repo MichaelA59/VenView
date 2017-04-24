@@ -12,22 +12,58 @@
 <br>
 <br>
 
-<%= link_to 'Add New Review', new_venue_review_path(@venue), class: 'button' %>
-<hr/>
+<%= link_to 'Add New Review', new_venue_review_path(@venue), class: 'button' %><br/>
+<hr />
 
 <% @reviews.each do |review| %>
-
-  <%= review.title %>  <br/>
-  Cost: <%= review.cost %>  <br/>
-  Sound Quality: <%= review.sound_quality %>  <br/>
-  Parking/Accessibility <%= review.parking %>  <br/>
-  <%= review.body %>  <br/>
-
-  <% if current_user && review.user_id == current_user.id %>
-    <%= link_to 'Edit Review', edit_venue_review_path(@venue, review) , class: 'button'%>
-    <%= link_to 'Delete Review', review_path(review), method: :delete, class: 'button' %>
-  <% end %>
- <hr/>
+  <div class="row">
+    <div class="columns small-1">
+      <strong>Votes: </strong>
+      <% total_upvotes = Vote.where({ review_id: review.id, up_or_down: "upvote" }).size %>
+      <% total_downvotes = Vote.where({ review_id: review.id, up_or_down: "downvote" }).size %>
+      <%= total_upvotes - total_downvotes %>
+    </div>
+    <div class="columns small-1">
+      <% this_vote = Vote.find_by(user: current_user, review: review) %>
+      <% if current_user && !this_vote %>
+        <%= link_to 'Upvote',
+          votes_path(:vote => { user_id: current_user.id, review_id: review.id, up_or_down: "upvote"}), method: :post %><br/>
+        <%= link_to 'Downvote',
+          votes_path(:vote => { user_id: current_user.id, review_id: review.id, up_or_down: "downvote"}), method: :post %>
+      <% elsif current_user && this_vote.up_or_down === "upvote" %>
+        <%= link_to 'Upvoted', vote_path(this_vote), method: :delete %><br/>
+        <%= link_to 'Downvote', vote_path(this_vote), method: :put %>
+      <% elsif current_user && this_vote.up_or_down === "downvote" %>
+        <%= link_to 'Upvote', vote_path(this_vote), method: :put %><br/>
+        <%= link_to 'Downvoted', vote_path(this_vote), method: :delete %>
+      <% end %>
+    </div>
+    <div class="columns small-8">
+      <p>
+        <%= review.title %><br />
+        <%= review.created_at.strftime("%B %d %Y") %><br />
+        <% if review.cost %>
+          Cost: <%= review.cost %><br />
+        <% end %>
+        <% if review.sound_quality %>
+          Sound Quality: <%= review.sound_quality %><br/>
+        <% end %>
+        <% if review.parking %>
+          Parking/Accessibility <%= review.parking %><br />
+        <% end %>
+        <%= review.body %>
+      </p>
+    </div>
+    <div class="columns small-2">
+      <% if current_user && review.user_id == current_user.id %>
+        <%= link_to 'Edit Review', edit_review_path(review), class: 'button' %><br/>
+        <%= link_to 'Delete Review', review_path(review), method: :delete, class: 'button' %>
+      <% end %>
+    </div>
+    <hr />
+    </div>
+  </div>
+  <br/>
 <% end %>
 
 <%= link_to 'Back to Venues', venues_path %>
