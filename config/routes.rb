@@ -5,12 +5,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
   resources :venues, except: [:destroy, :edit, :update]
-  resources :reviews, only: [:edit, :update, :destroy]
   resources :votes, only: [:create, :update, :destroy]
 
   resources :venues do
     resources :reviews, except: [:edit, :update, :destroy]
   end
+
+  resources :reviews, only: [:edit, :update, :destroy]
 
   namespace :api do
     namespace :v1 do

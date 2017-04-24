@@ -67,7 +67,7 @@ feature "Autheticated User can vote" do
 
     first(:link, 'Upvote').click
 
-    expect(page).to have_content "Votes: 1 Upvoted Downvote review_one"
+    expect(page).to have_content "Votes: 1 Upvoted Downvote review_three"
     expect(page).not_to have_content "Votes: 1 Upvoted Downvote review_two"
   end
 
@@ -85,12 +85,12 @@ feature "Autheticated User can vote" do
 
     first(:link, 'Upvote').click
 
-    expect(page).to have_content "Votes: 1 Upvoted Downvote review_one"
+    expect(page).to have_content "Votes: 1 Upvoted Downvote review_three"
     expect(page).not_to have_content "Votes: 1 Upvoted Downvote review_two"
 
     first(:link, 'Upvoted').click
 
-    expect(page).to have_content "Votes: 0 Upvote Downvote review_one"
+    expect(page).to have_content "Votes: 0 Upvote Downvote review_three"
   end
 
   scenario "User has already clicked 'Upvote' and clicks 'Downvote'" do
@@ -108,7 +108,7 @@ feature "Autheticated User can vote" do
     first(:link, 'Upvote').click
     first(:link, 'Downvote').click
 
-    expect(page).to have_content "Votes: -1 Upvote Downvoted review_one"
+    expect(page).to have_content "Votes: -1 Upvote Downvoted review_three"
   end
 
   scenario "User has already clicked 'Downvote' and clicks 'Downvote' again" do
@@ -126,7 +126,7 @@ feature "Autheticated User can vote" do
     first(:link, 'Downvote').click
     first(:link, 'Downvoted').click
 
-    expect(page).to have_content "Votes: 0 Upvote Downvote review_one"
+    expect(page).to have_content "Votes: 0 Upvote Downvote review_three"
   end
 
   scenario "User has already clicked 'Downvote' and clicks 'Upvote'" do
@@ -144,7 +144,7 @@ feature "Autheticated User can vote" do
     first(:link, 'Downvote').click
     first(:link, 'Upvote').click
 
-    expect(page).to have_content "Votes: 1 Upvoted Downvote review_one"
+    expect(page).to have_content "Votes: 1 Upvoted Downvote review_three"
   end
 
 end
