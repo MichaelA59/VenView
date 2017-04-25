@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :admin, only: [:index]
-  resources :users, only: [:show, :edit, :update]
+  resources :admins, only: [:index]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :venues
   resources :votes, only: [:create, :update, :destroy]
 
