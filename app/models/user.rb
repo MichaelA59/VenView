@@ -5,6 +5,7 @@ class User < ApplicationRecord
     uniqueness: { message: "An account already exists for that email address!" }
 
   has_many :reviews
+  has_many :votes
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

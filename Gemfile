@@ -27,6 +27,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'coveralls', require: false
   gem 'faker'
+  gem 'database_cleaner'
 end
 
 group :production do

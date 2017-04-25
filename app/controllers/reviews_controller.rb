@@ -25,12 +25,12 @@ class ReviewsController < ApplicationController
   def edit
     @review = Review.find(params[:id])
     @ratings_collection = [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]
-    @venue = Venue.find(params[:venue_id])
+    @venue = @review.venue
   end
 
   def update
     @review = Review.find(params[:id])
-    @venue = Venue.find(params[:venue_id])
+    @venue = @review.venue
     if @review.update_attributes(review_params)
       redirect_to venue_path(@venue)
     else
