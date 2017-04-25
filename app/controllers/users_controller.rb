@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorize_user, only: [:edit, :update, :show]
-  before_action :authorize_admin, only: [:index]
+  before_action :authorize_admin, only: [:index, :destroy]
   def index
     @users = User.all
   end
@@ -27,6 +27,13 @@ class UsersController < ApplicationController
       @user.avatar_url = params[:user][:avatar_url]
       render :edit
     end
+  end
+
+  def destroy
+    this_user = User.find(params[:id])
+    this_user.destroy
+
+    redirect_to users_path
   end
 
   def authorize_user

@@ -59,4 +59,9 @@
   <%= link_to 'Edit Profile', edit_user_path(@user) %></br>
 <% end %>
 
-<%= link_to "Delete Account", user_registration_path, :method => :delete %>
+<% if !current_user.admin? %>
+  <%= link_to "Delete Account", user_registration_path, :method => :delete %>
+<% end %>
+<% if current_user.admin? %>
+  <%= link_to "Delete Account", user_path, :method => :delete %>
+<% end %>

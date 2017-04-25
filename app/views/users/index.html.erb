@@ -3,4 +3,7 @@
 <% @users.each do |user| %>
   <% name = "#{user.first_name} #{user.last_name}" %> <br/>
   <%= link_to name, user_path(user) %>
+  <% if user === current_user %>
+    (this is you!)
+  <% end %>
 <% end %>
