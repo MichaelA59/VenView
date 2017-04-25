@@ -46,13 +46,17 @@
         </p>
       </div>
       <div class="columns small-2">
+      <% if !current_user.admin? %>
         <%= link_to 'Edit Review', edit_review_path(review) %><br/>
+      <% end %>
         <%= link_to 'Delete Review', review_path(review), method: :delete %>
       </div>
     </div>
   <% end %>
 <% end %>
 
-<%= link_to 'Edit Profile', edit_user_path(@user) %></br>
+<% if !current_user.admin? %>
+  <%= link_to 'Edit Profile', edit_user_path(@user) %></br>
+<% end %>
 
 <%= link_to "Delete Account", user_registration_path, :method => :delete %>
