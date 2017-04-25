@@ -24,7 +24,7 @@ feature "Venues" do
 
     visit venues_path
     click_link 'Add a Venue'
-    
+
     expect(page).to have_content "New Venue Form"
 
     fill_in 'Name', with: 'Horse of Blues'

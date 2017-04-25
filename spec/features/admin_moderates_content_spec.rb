@@ -13,11 +13,6 @@ feature "Admin can see list of users" do
       first_name: "Bobby",
       last_name: "Orr"
     )
-    user_three = FactoryGirl.create(
-      :user,
-      first_name: "Shaquille",
-      last_name: "ONeal"
-    )
     venue_one = FactoryGirl.create(:venue)
     review_one = FactoryGirl.create(
       :review,
@@ -75,24 +70,6 @@ feature "Admin can see list of users" do
       :user,
       first_name: "Shaquille",
       last_name: "ONeal"
-    )
-    venue_one = FactoryGirl.create(:venue)
-    review_one = FactoryGirl.create(
-      :review,
-      user: user_two,
-      venue: venue_one
-    )
-    review_two = FactoryGirl.create(
-      :review,
-      user: user_two,
-      venue: venue_one,
-      title: "Great place"
-    )
-    review_three = FactoryGirl.create(
-      :review,
-      user: user_two,
-      venue: venue_one,
-      title: "Just ok"
     )
 
     visit root_path
