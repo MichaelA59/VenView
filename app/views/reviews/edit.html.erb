@@ -6,6 +6,7 @@
 
     <%= f.label :title %>
     <%= f.text_field :title %>
+    <p class='error'><%= show_errors(@review, 'Title') %></p>
 
     <%= f.label :cost %>
     <%= f.collection_radio_buttons :cost, @ratings_collection, :first, :last %>
