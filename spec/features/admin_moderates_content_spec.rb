@@ -49,7 +49,6 @@ feature "Admin can see list of users" do
     click_link 'Maintain Venues'
     click_link venue_one.name
 
-    save_and_open_page
     expect(page).not_to have_content 'Edit Review'
     expect(page).to have_content 'Delete Review'
 
@@ -104,7 +103,7 @@ feature "Admin can see list of users" do
     click_button 'Sign In'
 
     expect(page).to have_content 'Admin Console'
-    click_link 'Admin Console'
+    click_on 'Admin Console'
     click_link 'Maintain Users'
 
     expect(page).to have_content user_two.first_name
@@ -112,14 +111,6 @@ feature "Admin can see list of users" do
 
     click_link "#{user_two.first_name} #{user_two.last_name}"
     click_link 'Delete Account'
-    click_link 'Sign In'
-
-    fill_in 'Email', with: user_one.email
-    fill_in 'Password', with: user_one.password
-
-    click_button 'Sign In'
-    click_link 'Admin Console'
-    click_link 'Maintain Users'
 
     expect(page).not_to have_content user_two.first_name
     expect(page).to have_content user_three.last_name

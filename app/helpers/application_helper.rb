@@ -3,7 +3,7 @@ module ApplicationHelper
     error_array = []
     if object.errors.any?
       object.errors.full_messages.each do |error|
-        if error.include?(field_name.to_s.capitalize)
+        if error.include?(field_name)
           error_array << error
         end
       end
