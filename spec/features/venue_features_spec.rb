@@ -13,8 +13,18 @@ feature "Venues" do
   end
 
   scenario "Adding a new venue" do
+    user = FactoryGirl.create(:user)
+
+    visit root_path
+
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign In'
+
     visit venues_path
     click_link 'Add a Venue'
+    
     expect(page).to have_content "New Venue Form"
 
     fill_in 'Name', with: 'Horse of Blues'
@@ -56,6 +66,15 @@ feature "Venues" do
   end
 
   scenario "Failing to add a venue with no information" do
+    user = FactoryGirl.create(:user)
+
+    visit root_path
+
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign In'
+
     visit venues_path
     click_link 'Add a Venue'
 
@@ -78,6 +97,15 @@ feature "Venues" do
   end
 
   scenario "Failing to add a venue with an invalid URL" do
+    user = FactoryGirl.create(:user)
+
+    visit root_path
+
+    click_link 'Sign In'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign In'
+
     visit venues_path
     click_link 'Add a Venue'
 
