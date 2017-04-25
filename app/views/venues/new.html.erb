@@ -1,13 +1,7 @@
 <div class='form-box'>
 
-<<<<<<< HEAD
 <h1>New Venue Form</h1>
 
-<%= render 'form', locals: {
-  venue: @venue,
-  state_collection: @state_collection
-} %>
-=======
 <h1 class='new-header'>New Venue Form</h1>
 
 <%= form_for @venue, :html => { :class => 'venue-form'} do |f| %>
@@ -44,5 +38,5 @@
     <%= f.submit :id=>"create-venue" %>
   </div>
 <% end %>
->>>>>>> master
+
 </div>
