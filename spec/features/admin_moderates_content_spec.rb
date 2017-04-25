@@ -3,29 +3,52 @@ require 'rails_helper'
 feature "Admin can see list of users" do
 
   scenario "Admin deletes user from list of users" do
-    user_one = FactoryGirl.create(:user, role: "admin")
-    user_two = FactoryGirl.create(:user)
-    user_three = FactoryGirl.create(:user)
+    user_one = FactoryGirl.create(
+      :user,
+      first_name: "Larry",
+      last_name: "Bird",
+      role: "admin")
+    user_two = FactoryGirl.create(
+      :user,
+      first_name: "Bobby",
+      last_name: "Orr"
+    )
+    user_three = FactoryGirl.create(
+      :user,
+      first_name: "Shaquille",
+      last_name: "ONeal"
+      )
 
     visit root_path
 
     # User_one,  who is an admin, signs in.
     click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
+
+    fill_in 'Email', with: user_one.email
+    fill_in 'Password', with: user_one.password
+
     click_button 'Sign In'
 
-    click "Admin Console"
-    click "Maintain Users"
+    binding.pry
+    click_link "Admin Console"
+    click_link "Maintain Users"
 
-    expect(page).to have_content user_two.name
-    expect(page).to have_content user_three.name
-    first(:link, 'Delete User').click
+    expect(page).to have_content user_two.first_name
+    expect(page).to have_content user_three.last_name
 
-    visit users_path
+    click_link "#{user_two.first_name} #{user_two.last_name}"
+    click_link "Delete Account"
+    click_link 'Sign In'
 
-    expect(page).not_to have_content user_two.name
-    expect(page).to have_content user_three.name
+    fill_in 'Email', with: user_one.email
+    fill_in 'Password', with: user_one.password
+
+    click_button 'Sign In'
+    click_link "Admin Console"
+    click_link "Maintain Users"
+
+    expect(page).not_to have_content user_two.first_name
+    expect(page).to have_content user_three.last_name
   end
 
   xscenario "User who is not an admin cannot delete venue" do
