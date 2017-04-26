@@ -3,8 +3,8 @@ class VenuesController < ApplicationController
   before_action :authorize_admin, only: [:edit, :update, :destroy]
 
   def index
-    @venues = Venue.order('name ASC')
-     if params[:search]
+  @venues = Venue.order('name ASC')
+    if params[:search]
       @venues = Venue.search(params[:search]).order("created_at DESC")
     else
       @venues = Venue.all.order("created_at DESC")
