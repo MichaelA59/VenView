@@ -9,13 +9,18 @@ class ReviewShowContainer extends Component {
     }
   }
 
-  componentDidMount() {
+  loadReviewsFromServer() {
     fetch('api/v1/reviewapi')
     .then(reviewResponse => reviewResponse.json())
     .then(usableReviewData => {
       this.setState({ reviews: usableReviewData })
     })
-  }
+  };
+
+  componentDidMount() {
+    this.loadReviewsFromServer();
+    setInterval(this.loadReviewsFromServer.bind(this), this.props.pollInterval);
+  };
 
   render() {
     let reviews = this.state.reviews.map (review => {
