@@ -1,29 +1,43 @@
-<h1><%= @venue.name %></h1>
+<div class='row'>
+  <h1 class='showpage-venue-name small-10 align-center text-center'><%= @venue.name %></h1>
+  <% if @venue.url? %>
+    <p class='showpage-link small-10 align-center text-center'><a href="<%=@venue.url%>">Venue Website</a></p>
+  <% end %>
+</div>
+<br />
 
-<p><a href="<%=@venue.url%>">Venue Website</a></p>
 
-<strong>Venue Address:</strong>
-<p>
-  <%= @venue.address %><br/>
-  <%= @venue.city %>, <%= @venue.state %> <%= @venue.zip %>
-</p>
+<div class='row align-self-center venue-details'>
+  <div class='small-10 medium-4 columns venue-address-box text-center'>
+    <strong>Venue Address:</strong>
+    <p>
+      <%= @venue.address %><br/>
+      <%= @venue.city %>, <%= @venue.state %> <%= @venue.zip %>
+    </p>
+    <% if @venue.capacity != '' %>
+      <strong>Capacity:</strong> <%= @venue.capacity %>
+    <% end %>
+      <br>
+      <br>
+    <%= link_to 'Add New Review', new_venue_review_path(@venue), class: 'button' %><br/>
+  </div>
 
-<strong>Capacity:</strong> <%= @venue.capacity %>
-<br>
-<br>
+  <div class='small-10 medium-4 columns' id='map-container'>
+  </div>
+  <br />
+</div>
 
-<%= link_to 'Add New Review', new_venue_review_path(@venue), class: 'button' %><br/>
 <hr />
 
 <% @reviews.each do |review| %>
   <div class="row">
-    <div class="columns small-1">
+    <div class="columns small-5 medium-1">
       <strong>Votes: </strong>
       <% total_upvotes = Vote.where({ review_id: review.id, up_or_down: "upvote" }).size %>
       <% total_downvotes = Vote.where({ review_id: review.id, up_or_down: "downvote" }).size %>
       <%= total_upvotes - total_downvotes %>
     </div>
-    <div class="columns small-1">
+    <div class="columns small-5 medium-1">
       <% this_vote = Vote.find_by(user: current_user, review: review) %>
       <% if current_user && !this_vote %>
         <%= link_to 'Upvote',
@@ -38,7 +52,7 @@
         <%= link_to 'Downvoted', vote_path(this_vote), method: :delete %>
       <% end %>
     </div>
-    <div class="columns small-8">
+    <div class="columns small-10 medium-8">
       <p>
         <%= review.title %><br />
         <%= review.created_at.strftime("%B %d %Y") %><br />
@@ -54,16 +68,51 @@
         <%= review.body %>
       </p>
     </div>
-    <div class="columns small-2">
+    <div class="columns small-10 medium-2">
       <% if current_user && review.user_id == current_user.id %>
         <%= link_to 'Edit Review', edit_review_path(review), class: 'button' %><br/>
         <%= link_to 'Delete Review', review_path(review), method: :delete, class: 'button' %>
       <% end %>
     </div>
-    <hr />
-    </div>
   </div>
+
+  <hr />
   <br/>
 <% end %>
 
-<%= link_to 'Back to Venues', venues_path %>
+<div class='row'>
+  <div class='small-10 align-center text-center'
+    <%= link_to 'Back to Venues', venues_path %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var venue_name = '<%= @venue.name %>';
+  var venue_address = '<%= @venue.address %>';
+  var venue_city = '<%= @venue.city %>';
+  var venue_state = '<%= @venue.state %>';
+  var venue_zip = '<%= @venue.zip %>';
+
+  var address = `${venue_address}, ${venue_city}, ${venue_state} ${venue_zip}`;
+
+  var map = new google.maps.Map(document.getElementById('map-container'), {
+    mapTypeId: google.maps.MapTypeId.TERRAIN,
+    zoom: 15
+  });
+
+  var geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode({
+    'address': address
+  },
+
+  function(results, status) {
+    if(status == google.maps.GeocoderStatus.OK) {
+      new google.maps.Marker({
+        position: results[0].geometry.location,
+        map: map
+      });
+      map.setCenter(results[0].geometry.location);
+    }
+  });
+</script>

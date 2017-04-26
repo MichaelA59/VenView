@@ -4,32 +4,46 @@
 
 <%= form_for @venue, :html => { :class => 'venue-form'} do |f| %>
 
-  <%= f.label :name, "Name"%>
-  <%= f.text_field :name, :autofocus=>true %>
-  <p class='error'><%= show_errors(@venue, :name) %></p>
+  <div class='row'>
+    <%= f.label :name, "Name"%>
+    <%= f.text_field :name, :autofocus=>true %>
+    <p class='error'><%= show_errors(@venue, :name) %></p>
+  </div>
 
-  <%= f.label :url, "Website" %>
-  <%= f.text_field :url %>
-  <p class='error'><%= show_errors(@venue, :url) %></p>
+  <div class='row'>
+    <%= f.label :url, "Website" %>
+    <%= f.text_field :url %>
+    <p class='error'><%= show_errors(@venue, :url) %></p>
+  </div>
 
-  <%= f.label :address, "Address" %>
-  <%= f.text_field :address %>
-  <p class='error'><%= show_errors(@venue, :address) %></p>
+  <div class='row'>
+    <%= f.label :address, "Address" %>
+    <%= f.text_field :address %>
+    <p class='error'><%= show_errors(@venue, :address) %></p>
+  </div>
 
-  <%= f.label :city, "City" %>
-  <%= f.text_field :city %>
-  <p class='error'><%= show_errors(@venue, :city) %></p>
+  <div class='row'>
+    <%= f.label :city, "City" %>
+    <%= f.text_field :city %>
+    <p class='error'><%= show_errors(@venue, :city) %></p>
+  </div>
 
-  <%= f.label :state, "State" %>
-  <%= f.collection_select :state, @state_collection, :first, :last %>
-  <p class='error'><%= show_errors(@venue, :state) %></p>
+  <div class='row'>
+    <%= f.label :state, "State" %>
+    <%= f.collection_select :state, @state_collection, :first, :last %>
+    <p class='error'><%= show_errors(@venue, :state) %></p>
+  </div>
 
-  <%= f.label :zip, "Zip" %>
-  <%= f.text_field :zip %>
-  <p class='error'><%= show_errors(@venue, :zip) %></p>
+  <div class='row'>
+    <%= f.label :zip, "Zip" %>
+    <%= f.text_field :zip %>
+    <p class='error'><%= show_errors(@venue, :zip) %></p>
+  </div>
 
-  <%= f.label :capacity, "Capacity" %>
-  <%= f.text_field :capacity %>
+  <div class='row'>
+    <%= f.label :capacity, "Capacity" %>
+    <%= f.text_field :capacity %>
+  </div>
   <br>
 
   <div class='submit-container'>

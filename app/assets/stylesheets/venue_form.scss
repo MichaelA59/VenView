@@ -2,7 +2,7 @@ $white: #ffffff;
 $black: #000000;
 $grey-shadow: #999;
 $form-box-grey-shadow: #2d2d2d;
-$venue-form-background-color: rgba(63, 72, 84, 1);
+$venue-form-background-color: rgba(71, 76, 80, 0.85);
 $input-background-color: rgba(255, 255, 255, 0.54);
 $low-opacity-white: rgba(255, 255, 255, 0.22);
 $text-shadow: 2px 2px 10px $black;
@@ -20,16 +20,33 @@ $text-shadow: 2px 2px 10px $black;
   padding: 2em;
   width: 50%;
 
+  label {
+    float: left;
+    color: $white;
+    text-shadow: $text-shadow;
+    vertical-align: center;
+  }
+
   input {
     background-color: $input-background-color;
     border-color: $low-opacity-white;
     border-radius: 5px;
+    width: 75%;
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: 0;
   }
 
   select {
     background-color: $input-background-color;
     border-color: $low-opacity-white;
     border-radius: 5px;
+    width: 75%;
+    float: right;
+
+    // margin: 0 auto;
+    // margin-left: auto;
+    // margin-right: 0;
   }
 
   .submit-container {
@@ -47,4 +64,13 @@ $text-shadow: 2px 2px 10px $black;
     font-size: .8em;
     text-shadow: $text-shadow;
   }
+}
+
+.state-field{
+
+}
+
+select#venue-state {
+    // position:relative;
+    bottom:2px;
 }
