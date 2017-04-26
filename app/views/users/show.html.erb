@@ -1,6 +1,10 @@
 <h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
 
-<img src= "<%= @user.avatar_url %>" />
+<% if @user.avatar.medium.url === nil %>
+  <img src= "<%= @user.avatar_url %>" />
+<% else %>
+  <%= image_tag @user.avatar.thumb.url %>
+<% end %>
 
 <h3> <%= @user.email %> </h3>
 
@@ -49,6 +53,9 @@
       <% if !current_user.admin? %>
         <%= link_to 'Edit Review', edit_review_path(review) %><br/>
       <% end %>
+      <% if current_user === @user %>
+        <%= link_to 'Edit Review', edit_review_path(review) %><br/>
+      <% end %>
         <%= link_to 'Delete Review', review_path(review), method: :delete %>
       </div>
     </div>
@@ -56,6 +63,10 @@
 <% end %>
 
 <% if !current_user.admin? %>
+  <%= link_to 'Edit Profile', edit_user_path(@user) %></br>
+<% end %>
+
+<% if current_user === @user %>
   <%= link_to 'Edit Profile', edit_user_path(@user) %></br>
 <% end %>
 

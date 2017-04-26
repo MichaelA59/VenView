@@ -18,13 +18,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.email = params[:user][:email]
     @user.avatar_url = params[:user][:avatar_url]
+    @user.avatar = params[:user][:avatar]
 
-    if @user.save
+    if @user.save!
       flash[:notice] = 'Success! Your profile has been updated.'
       redirect_to @user
     else
       @user.email = params[:user][:email]
       @user.avatar_url = params[:user][:avatar_url]
+      @user.avatar = params[:user][:avatar]
       render :edit
     end
   end
@@ -38,7 +40,7 @@ class UsersController < ApplicationController
 
   def authorize_user
     if !user_signed_in?
-      raise ActionController::RoutingError.new("NotFound")
+      raise ActionController::RoutingError.new("Not Found")
     end
   end
 

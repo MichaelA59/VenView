@@ -8,6 +8,10 @@
   <%= f.label :avatar_url, "Avatar" %>
   <%= f.text_field :avatar_url, :input_html => { :value => @user.avatar_url} %>
 
+  Or you can upload your own avatar!
+  <%= f.label :avatar, "Avatar" %>
+  <%= f.file_field :avatar %>
+
   <%= f.submit "Update Profile", :id=>"Update Profile" %>
 <% end %>
 
