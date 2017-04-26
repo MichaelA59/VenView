@@ -10,11 +10,12 @@ $text-shadow: 2px 2px 10px $black;
 .venue-box {
   background-color: $venue-form-background-color;
   border: 2px solid $low-opacity-white;
-  text-align: center;
-  font-size: 2em;
-  max-width: 27%;
-  margin: .5em auto;
   border-radius: 5px;
+  font-size: 2em;
+  margin: 0.5em auto;
+  max-width: 27%;
+  text-align: center;
+  
   a {
     text-shadow: $text-shadow;
   }

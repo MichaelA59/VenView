@@ -11,18 +11,18 @@ $text-shadow: 2px 2px 10px $black;
 
 
 .form-box {
+  border: solid 2px;
   background-color: $venue-form-background-color;
-  border: solid 2px $white;
   border-color: $low-opacity-white;
   border-radius: 6px;
-  box-shadow: 5px 5px 15px $form-box-grey-shadow;
   margin: 2% 25%;
+  box-shadow: 5px 5px 15px $form-box-grey-shadow;
   padding: 2em;
   width: 50%;
 
   label {
-    float: left;
     color: $white;
+    float: left;
     text-shadow: $text-shadow;
     vertical-align: center;
   }
@@ -31,22 +31,18 @@ $text-shadow: 2px 2px 10px $black;
     background-color: $input-background-color;
     border-color: $low-opacity-white;
     border-radius: 5px;
-    width: 75%;
     margin: 0 auto;
     margin-left: auto;
     margin-right: 0;
+    width: 75%;
   }
 
   select {
     background-color: $input-background-color;
     border-color: $low-opacity-white;
     border-radius: 5px;
-    width: 75%;
     float: right;
-
-    // margin: 0 auto;
-    // margin-left: auto;
-    // margin-right: 0;
+    width: 75%;
   }
 
   .submit-container {
@@ -66,11 +62,6 @@ $text-shadow: 2px 2px 10px $black;
   }
 }
 
-.state-field{
-
-}
-
-select#venue-state {
-    // position:relative;
-    bottom:2px;
+select#venue-state {;
+  bottom: 2px;
 }
