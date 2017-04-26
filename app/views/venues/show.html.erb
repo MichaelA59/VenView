@@ -1,3 +1,8 @@
+<% if current_user && current_user.admin? %>
+  <%= link_to "Update Venue", edit_venue_path(@venue) %>
+  <%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
+<% end %>
+
 <div class='row'>
   <h1 class='showpage-venue-name small-10 small-centered text-center'><%= @venue.name %></h1>
   <% if @venue.url? %>
@@ -5,7 +10,6 @@
   <% end %>
 </div>
 <br />
-
 
 <div class='row venue-details'>
   <div class='small-10 medium-4 small-centered columns venue-address-box text-center'>
@@ -73,6 +77,8 @@
     <div class="columns small-10 medium-2">
       <% if current_user && review.user_id == current_user.id %>
         <%= link_to 'Edit Review', edit_review_path(review), class: 'button' %><br/>
+      <% end %>
+      <% if current_user && (review.user_id == current_user.id || current_user.admin?) %>
         <%= link_to 'Delete Review', review_path(review), method: :delete, class: 'button' %>
       <% end %>
     </div>

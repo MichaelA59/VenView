@@ -1,6 +1,14 @@
 class VenuesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authorize_admin, only: [:edit, :update, :destroy]
+
   def index
     @venues = Venue.order('name ASC')
+      if params[:search]
+        @venues = Venue.search(params[:search]).order("created_at DESC")
+      else
+        @venues = Venue.all.order("created_at DESC")
+      end
   end
 
   def show
@@ -25,6 +33,28 @@ class VenuesController < ApplicationController
     end
   end
 
+  def edit
+    @venue = Venue.find(params[:id])
+    @state_collection = Venue::STATES
+  end
+
+  def update
+    @venue = Venue.find(params[:id])
+    if @venue.update_attributes(venue_params)
+      redirect_to venue_path(@venue)
+    else
+      @state_collection = Venue::STATES
+      render :edit
+    end
+  end
+
+  def destroy
+    @venue = Venue.find(params[:id])
+    @venue.destroy
+
+    redirect_to venues_path
+  end
+
   private
 
   def venue_params
@@ -37,5 +67,17 @@ class VenuesController < ApplicationController
       :zip,
       :capacity
     )
+  end
+
+  def authorize_user
+    if !user_signed_in?
+      raise ActionController::RoutingError.new("NotFound")
+    end
+  end
+
+  def authorize_admin
+    if !user_signed_in? || !current_user.admin?
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end

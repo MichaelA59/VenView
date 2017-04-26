@@ -75,4 +75,9 @@ class Venue < ApplicationRecord
   validates :zip, length: { is: 5 }
 
   has_many :reviews
+
+  def self.search(search)
+    where("name ILIKE ?
+    OR url ILIKE ? OR address ILIKE ? OR city ILIKE ? OR state ILIKE ? OR zip ILIKE ? OR capacity ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+  end
 end

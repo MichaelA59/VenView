@@ -5,10 +5,14 @@
 </div>
 
 <% @venues.each do |venue| %>
+
   <div class="venue-box">
     <%= link_to venue.name, venue_path(venue) %><br/>
   </div>
 
+  <% if @venues.blank? %>
+    <h4>No Results for: <%= params[:search] %>.</h4>
+  <% end %>
 <% end %>
 
 <br />

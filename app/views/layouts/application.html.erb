@@ -25,7 +25,9 @@
             </li>
             <li><a href="#">Artists</a></li>
             <li>
-              <input class="search-bar" type="text" placeholder="Search">
+              <%= form_tag(venues_path, :method => "get", id: "search-form") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Search VenView", class: "search-bar"%>
+              <% end %>
             </li>
           </ul>
         </div>
@@ -36,6 +38,11 @@
                 <%= link_to "Signed In As #{current_user.first_name}",
                   user_path(current_user)
                 %>
+              </li>
+              <li>
+                <% if current_user.admin? %>
+                  <%= link_to "Admin Console", admins_path, class: "button" %>
+                <% end %>
               </li>
               <li>
                 <%= link_to "Sign Out",
