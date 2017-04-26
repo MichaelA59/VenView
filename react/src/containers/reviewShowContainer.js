@@ -15,12 +15,12 @@ class ReviewShowContainer extends Component {
     .then(usableReviewData => {
       this.setState({ reviews: usableReviewData })
     })
-  };
+  }
 
   componentDidMount() {
     this.loadReviewsFromServer();
     setInterval(this.loadReviewsFromServer.bind(this), this.props.pollInterval);
-  };
+  }
 
   render() {
     let reviews = this.state.reviews.map (review => {
