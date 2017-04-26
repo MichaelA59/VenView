@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    binding.pry
     @user = User.find(params[:id])
     @user.email = params[:user][:email]
     @user.avatar_url = params[:user][:avatar_url]

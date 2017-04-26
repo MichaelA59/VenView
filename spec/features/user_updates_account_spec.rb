@@ -41,9 +41,11 @@ feature "User updates account:" do
     click_link "Signed In As #{user.first_name}"
     click_link "Edit Profile"
 
-    fill_in "Avatar", with: "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg"
+    fill_in "user_avatar_url", with: "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg"
 
+    binding.pry
     click_button "Update Profile"
+    binding.pry
 
     expect(page).to have_content "Success! Your profile has been updated."
     expect(page).to have_xpath("//img[@src='http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg']")
