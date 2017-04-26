@@ -4,32 +4,46 @@
 
   <%= form_for @venue, :html => { :class => 'venue-form'} do |f| %>
 
-    <%= f.label :name, "Name"%>
-    <%= f.text_field :name, :autofocus=>true %>
-    <p class='error'><%= show_errors(@venue, 'Name') %></p>
+    <div class='row'>
+      <%= f.label :name, "Name"%>
+      <%= f.text_field :name, :autofocus=>true %>
+      <p class='error'><%= show_errors(@venue, 'Name') %></p>
+    </div>
 
-    <%= f.label :url, "Website" %>
-    <%= f.text_field :url %>
-    <p class='error'><%= show_errors(@venue, 'Url') %></p>
+    <div class='row'>
+      <%= f.label :url, "Website" %>
+      <%= f.text_field :url %>
+      <p class='error'><%= show_errors(@venue, 'Url') %></p>
+    </div>
 
-    <%= f.label :address, "Address" %>
-    <%= f.text_field :address %>
-    <p class='error'><%= show_errors(@venue, 'Address') %></p>
+    <div class='row'>
+      <%= f.label :address, "Address" %>
+      <%= f.text_field :address %>
+      <p class='error'><%= show_errors(@venue, 'Address') %></p>
+    </div>
 
-    <%= f.label :city, "City" %>
-    <%= f.text_field :city %>
-    <p class='error'><%= show_errors(@venue, "City") %></p>
+    <div class='row'>
+      <%= f.label :city, "City" %>
+      <%= f.text_field :city %>
+      <p class='error'><%= show_errors(@venue, 'City') %></p>
+    </div>
 
-    <%= f.label :state, "State" %>
-    <%= f.collection_select :state, @state_collection, :first, :last %>
-    <p class='error'><%= show_errors(@venue, 'State') %></p>
+    <div class='row'>
+      <%= f.label :state, "State" %>
+      <%= f.collection_select :state, @state_collection, :first, :last %>
+      <p class='error'><%= show_errors(@venue, 'State') %></p>
+    </div>
 
-    <%= f.label :zip, "Zip" %>
-    <%= f.text_field :zip %>
-    <p class='error'><%= show_errors(@venue, 'Zip') %></p>
+    <div class='row'>
+      <%= f.label :zip, "Zip" %>
+      <%= f.text_field :zip %>
+      <p class='error'><%= show_errors(@venue, 'Zip') %></p>
+    </div>
 
-    <%= f.label :capacity, "Capacity" %>
-    <%= f.text_field :capacity %>
+    <div class='row'>
+      <%= f.label :capacity, "Capacity" %>
+      <%= f.text_field :capacity %>
+    </div>
     <br>
 
     <div class='submit-container'>

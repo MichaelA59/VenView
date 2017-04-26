@@ -1,0 +1,30 @@
+$white: #ffffff;
+$black: #000000;
+$grey-shadow: #999;
+$form-box-grey-shadow: #2d2d2d;
+$venue-form-background-color: rgba(137, 157, 173, 0.7);
+$input-background-color: rgba(255, 255, 255, 0.54);
+$low-opacity-white: rgba(255, 255, 255, 0.22);
+$text-shadow: 2px 2px 10px $black;
+
+.venue-box {
+  background-color: $venue-form-background-color;
+  border: 2px solid $low-opacity-white;
+  border-radius: 5px;
+  font-size: 2em;
+  margin: 0.5em auto;
+  max-width: 27%;
+  text-align: center;
+
+  a {
+    text-shadow: $text-shadow;
+  }
+}
+
+.add-venue {
+  text-align: center;
+}
+
+.venue-label h1 {
+  text-shadow: $text-shadow;
+}
