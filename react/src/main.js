@@ -5,7 +5,7 @@ import ReviewShowContainer from './containers/reviewShowContainer'
 
 $(function() {
   ReactDOM.render(
-    <ReviewShowContainer />,
+    <ReviewShowContainer pollInterval={5000}/>,
     document.getElementById('app')
   );
 });
