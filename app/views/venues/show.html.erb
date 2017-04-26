@@ -1,14 +1,14 @@
 <div class='row'>
-  <h1 class='showpage-venue-name small-10 align-center text-center'><%= @venue.name %></h1>
+  <h1 class='showpage-venue-name small-10 small-centered text-center'><%= @venue.name %></h1>
   <% if @venue.url? %>
-    <p class='showpage-link small-10 align-center text-center'><a href="<%=@venue.url%>">Venue Website</a></p>
+    <p class='showpage-link small-10 small-centered text-center'><a href="<%=@venue.url%>">Venue Website</a></p>
   <% end %>
 </div>
 <br />
 
 
-<div class='row align-self-center venue-details'>
-  <div class='small-10 medium-4 columns venue-address-box text-center'>
+<div class='row venue-details'>
+  <div class='small-10 medium-4 small-centered columns venue-address-box text-center'>
     <strong>Venue Address:</strong>
     <p>
       <%= @venue.address %><br/>
@@ -16,13 +16,15 @@
     </p>
     <% if @venue.capacity != '' %>
       <strong>Capacity:</strong> <%= @venue.capacity %>
+      <br />
     <% end %>
       <br>
-      <br>
-    <%= link_to 'Add New Review', new_venue_review_path(@venue), class: 'button' %><br/>
+    <%= link_to 'Add New Review', new_venue_review_path(@venue), class: 'button add-review' %><br/>
   </div>
+</div>
 
-  <div class='small-10 medium-4 columns' id='map-container'>
+<div class='row'>
+  <div class='small-10 medium-4 small-centered columns map-container' id='map'>
   </div>
   <br />
 </div>
@@ -95,7 +97,7 @@
 
   var address = `${venue_address}, ${venue_city}, ${venue_state} ${venue_zip}`;
 
-  var map = new google.maps.Map(document.getElementById('map-container'), {
+  var map = new google.maps.Map(document.getElementById('map'), {
     mapTypeId: google.maps.MapTypeId.TERRAIN,
     zoom: 15
   });

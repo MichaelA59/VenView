@@ -1,9 +1,18 @@
-<h1>Our Venues!</h1>
+<div class='row'>
+  <div class='small-10 medium-4 small-centered text-center columns venue-label'>
+    <h1>Our Venues!</h1>
+  </div>
+</div>
 
 <% @venues.each do |venue| %>
-  <%= link_to venue.name, venue_path(venue) %><br/>
+  <div class="venue-box">
+    <%= link_to venue.name, venue_path(venue) %><br/>
+  </div>
+
 <% end %>
 
 <br />
 
-<%= link_to "Add a Venue", new_venue_path %>
+<div class='add-venue'>
+  <%= link_to "Add a Venue", new_venue_path, class: 'button' %>
+</div>
