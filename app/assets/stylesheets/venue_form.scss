@@ -11,12 +11,12 @@ $text-shadow: 2px 2px 10px $black;
 
 
 .form-box {
-  border: solid 2px;
   background-color: $venue-form-background-color;
+  border: solid 2px;
   border-color: $low-opacity-white;
   border-radius: 6px;
-  margin: 2% 25%;
   box-shadow: 5px 5px 15px $form-box-grey-shadow;
+  margin: 2% 25%;
   padding: 2em;
   width: 50%;
 
