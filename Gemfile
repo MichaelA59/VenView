@@ -31,6 +31,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'coveralls', require: false
   gem 'database_cleaner'
+  gem 'capybara-email'
 end
 
 group :production do

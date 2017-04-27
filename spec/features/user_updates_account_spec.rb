@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'date'
 
 feature "User updates account:" do
   # As an authenticated user
@@ -6,7 +7,9 @@ feature "User updates account:" do
   # So that my information is no longer retained by the app
 
   scenario "User successfully updates their account with new email address" do
-    user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(
+      :user,
+    )
 
     visit root_path
     click_link 'Sign In'
@@ -26,6 +29,7 @@ feature "User updates account:" do
     click_button 'Update Profile'
 
     expect(page).to have_content "Success! Your profile has been updated."
+
     expect(page).to have_content "foo@foo.com"
   end
 

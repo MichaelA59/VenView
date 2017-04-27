@@ -4,6 +4,10 @@ feature "Sign up" do
   # As a prospective user
   # I want to create an account
   # So that I can post venues and review them
+  background do
+    # will clear the message queue
+    clear_emails
+  end
 
   scenario "Specifying valid and required information" do
     visit root_path
@@ -15,7 +19,19 @@ feature "Sign up" do
     fill_in 'Email', with: 'bob.billbob@gmail.com'
     click_button 'Sign Up'
 
-    expect(page).to have_content "Welcome! You have signed up successfully."
+    expect(page).to have_content "A message with a confirmation link has been sent to your email address."
+
+    open_email('bob.billbob@gmail.com')
+    current_email.click_link 'Confirm my account'
+
+    visit root_path
+
+    click_link 'Sign In'
+    fill_in 'Email', with: 'bob.billbob@gmail.com'
+    fill_in 'Password', with: 'password123'
+    click_button 'Sign In'
+
+    expect(page).to have_content "Welcome back! You are signed in successfully."
     expect(page).not_to have_content "Sign Up"
     expect(page).not_to have_content "Sign In"
     expect(page).to have_content "Sign Out"

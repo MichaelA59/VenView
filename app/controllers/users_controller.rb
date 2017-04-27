@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       @user.remove_avatar!
     end
 
+    @user.skip_reconfirmation!
     if @user.save
       flash[:notice] = 'Success! Your profile has been updated.'
       redirect_to @user
