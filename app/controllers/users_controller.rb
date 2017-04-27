@@ -25,9 +25,9 @@ class UsersController < ApplicationController
       @user.profile_pic_url = params[:user][:profile_pic_url]
     end
 
-    if params[:user][:delete_avatar]
+    if params["delete-avatar"] === "1"
       @user.profile_pic_url = ""
-      @user.avatar = nil
+      @user.remove_avatar!
     end
 
     if @user.save

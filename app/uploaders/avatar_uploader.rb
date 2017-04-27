@@ -30,21 +30,21 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   process :resize_to_fit => [800, 800]
 
-    version :large do
-      process resize_to_limit: [800, 800]
-    end
+  version :large do
+    process resize_to_limit: [800, 800]
+  end
 
-    version :medium, :from_version => :large do
-      process resize_to_limit: [500, 500]
-    end
+  version :medium, :from_version => :large do
+    process resize_to_limit: [500, 500]
+  end
 
-    version :thumb, :from_version => :medium do
-      process resize_to_fit: [100, 100]
-    end
+  version :thumb, :from_version => :medium do
+    process resize_to_fit: [100, 100]
+  end
 
-    version :square do
-      process :resize_to_fill => [500, 500]
-    end
+  version :square do
+    process :resize_to_fill => [500, 500]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -53,7 +53,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
+  # Avoid using model.id or version_name here,
+  # see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
   # end

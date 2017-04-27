@@ -12,7 +12,8 @@
   <%= f.label :avatar, "Avatar Upload" %>
   <%= f.file_field :avatar %>
 
-  <input type="checkbox" name="delete_avatar" value="delete_avatar">Delete my avatar<br>
+  Delete my avatar
+  <%= check_box_tag "delete-avatar", "1"%><br/>
 
   <%= f.submit "Update Profile", :id=>"Update Profile" %>
 <% end %>
