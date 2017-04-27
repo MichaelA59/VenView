@@ -23,7 +23,6 @@
             <li>
               <%= link_to "Venues", venues_path %>
             </li>
-            <li><a href="#">Artists</a></li>
             <li>
               <%= form_tag(venues_path, :method => "get", id: "search-form") do %>
               <%= text_field_tag :search, params[:search], placeholder: "Search VenView", class: "search-bar"%>
