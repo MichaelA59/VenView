@@ -12,26 +12,11 @@
   <h3>My Reviews</h3>
   <% @reviews.each do |review| %>
     <div class="row">
-      <div class="columns small-1">
+      <div class="columns small-2">
         <strong>Votes: </strong>
         <% total_upvotes = Vote.where({ review_id: review.id, up_or_down: "upvote" }).size %>
         <% total_downvotes = Vote.where({ review_id: review.id, up_or_down: "downvote" }).size %>
         <%= total_upvotes - total_downvotes %>
-      </div>
-      <div class="columns small-1">
-        <% this_vote = Vote.find_by(user: @user, review: review) %>
-        <% if !this_vote %>
-          <%= link_to 'Upvote',
-            votes_path(:vote => { user_id: @user.id, review_id: review.id, up_or_down: "upvote"}), method: :post %><br/>
-          <%= link_to 'Downvote',
-            votes_path(:vote => { user_id: @user.id, review_id: review.id, up_or_down: "downvote"}), method: :post %>
-        <% elsif this_vote.up_or_down === "upvote" %>
-          <%= link_to 'Upvoted', vote_path(this_vote), method: :delete %><br/>
-          <%= link_to 'Downvote', vote_path(this_vote), method: :put %>
-        <% elsif this_vote.up_or_down === "downvote" %>
-          <%= link_to 'Upvote', vote_path(this_vote), method: :put %><br/>
-          <%= link_to 'Downvoted', vote_path(this_vote), method: :delete %>
-        <% end %>
       </div>
       <div class="columns small-8">
         <p>
