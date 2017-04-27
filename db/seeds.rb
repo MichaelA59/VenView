@@ -93,7 +93,8 @@ User.create(
   first_name: 'Mike',
   last_name: 'Adamski',
   email: 'mike@test.com',
-  password: 'password')
+  password: 'password'
+)
 
 
 # SEEDS FOR REVIEWS
@@ -135,7 +136,8 @@ Review.create(
   cost: 4,
   sound_quality: 2,
   parking: 4,
-  body: 'Summer nights at this arena are amazing. Get lawn seats and just gaze up at the stars while listening to incredible feel-good summery music!')
+  body: 'Summer nights at this arena are amazing. Get lawn seats and just gaze up at the stars while listening to incredible feel-good summery music!'
+)
 
 Review.create(
   title: 'Wonderful attached restaurant',
@@ -154,7 +156,8 @@ Review.create(
   cost: 3,
   sound_quality: 2,
   parking: 5,
-  body: 'Saw Johnnyswim here. The venue is great - multiple bars and a cool crowd. I love the balcony up top.')
+  body: 'Saw Johnnyswim here. The venue is great - multiple bars and a cool crowd. I love the balcony up top.'
+)
 
 Review.create(
   title: 'Great bites and casual live music',
