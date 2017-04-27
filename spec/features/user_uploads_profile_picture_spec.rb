@@ -26,8 +26,7 @@ feature "User uploads profile picture:" do
 
     click_button "Update Profile"
 
-    expect(page).to have_content
-      "Success! Your profile has been updated."
+    expect(page).to have_content "Success! Your profile has been updated."
     expect(page).to have_xpath '//img[contains(@src,"/thumb_test_picture.jpg")]'
   end
 
@@ -58,7 +57,6 @@ feature "User uploads profile picture:" do
     click_button "Update Profile"
 
     expect(page).to have_content "Success! Your profile has been updated."
-    expect(page).not_to have_xpath
-      '//img[contains(@src,"/thumb_test_picture.jpg")]'
+    expect(page).not_to have_xpath '//img[contains(@src,"/thumb_test_picture.jpg")]'
   end
 end

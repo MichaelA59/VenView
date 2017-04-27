@@ -47,8 +47,7 @@ feature "User updates account:" do
     click_button "Update Profile"
 
     expect(page).to have_content "Success! Your profile has been updated."
-    expect(page).to have_xpath
-      "//img[@src='https://media4.giphy.com/media/jp2KXzsPtoKFG/giphy.gif']"
+    expect(page).to have_xpath "//img[@src='https://media4.giphy.com/media/jp2KXzsPtoKFG/giphy.gif']"
   end
 
   scenario "User unsucessfully tries to update account with invalid email" do
