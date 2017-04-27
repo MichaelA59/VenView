@@ -23,7 +23,7 @@ feature "Venues" do
     click_button 'Sign In'
 
     visit venues_path
-    click_link 'Add a Venue'
+    click_link 'Add a New Venue'
 
     expect(page).to have_content "New Venue Form"
 
@@ -76,7 +76,7 @@ feature "Venues" do
     click_button 'Sign In'
 
     visit venues_path
-    click_link 'Add a Venue'
+    click_link 'Add a New Venue'
 
     fill_in 'Name', with: ''
     fill_in 'Website', with: ''
@@ -107,7 +107,7 @@ feature "Venues" do
     click_button 'Sign In'
 
     visit venues_path
-    click_link 'Add a Venue'
+    click_link 'Add a New Venue'
 
     fill_in 'Name', with: 'House of Blorbs'
     fill_in 'Website', with: 'kdfjals'
