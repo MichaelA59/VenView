@@ -35,7 +35,7 @@ feature "User votes on review on user_page" do
     )
   end
 
-  scenario "User who has not already voted clicks 'Upvote' on a review" do
+  scenario "User who has not already voted clicks 'Upvote' Symbol on a review" do
 
     visit root_path
     click_link 'Sign In'
@@ -44,8 +44,13 @@ feature "User votes on review on user_page" do
     click_button 'Sign In'
 
     visit user_path(user)
-    expect(page).to have_content "Upvote"
-    expect(page).to have_content "Downvote"
+
+      expect(page).should have_css("a.triangle-up")
+      expect(page).should have_css("a.triangle-down")
+
+      # expect(page).to have_selector(:css, ".votes a.triangle-down")
+      # expect(page).to have_selector(:css, ".votes a.triangle-up")
+
 
     first(:link, 'Upvote').click
 

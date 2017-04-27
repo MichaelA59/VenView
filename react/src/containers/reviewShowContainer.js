@@ -36,10 +36,24 @@ class ReviewShowContainer extends Component {
     })
 
     return (
-      <div className="row align-justify">
-        <div className="column small-4 top-five">
+      <div className='row'>
+        <div className='columns small-10 large-6 text-center home-content'>
+          <h1>No More Guessing</h1>
+          <p>With VenView, finding the best venue is easy</p>
+
+          <hr width='50%'/>
+
+          <h1>Share your Memories</h1>
+          <p>Leave reviews for Venues you visited and let others know what you think!</p>
+
+          <hr width='50%'/>
+
+          <h1>Connect with Fans</h1>
+          <p>Join the community and rate other fans' reviews</p>
+        </div>
+
+        <div className="columns small-10 large-4 top-five">
           <h3> Recent Reviews </h3>
-          <hr />
           {reviews}
         </div>
       </div>

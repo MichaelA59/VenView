@@ -4,6 +4,7 @@
 
 $white: #ffffff;
 $black: #000000;
+$red: #ff0000;
 $grey-shadow: #999;
 $venue-form-background-color: rgba(137, 157, 173, 0.7);
 $input-background-color: rgba(255, 255, 255, 0.54);
@@ -57,19 +58,33 @@ h1 {
 
 
 .triangle-up {
+  border-bottom: 20px solid $red;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
   display: inline-block;
+  height: 0;
 	width: 0;
-	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-bottom: 20px solid red;
 }
 
 .triangle-down {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid $red;
   display: inline-block;
-	width: 0;
 	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-top: 20px solid red;
+  width: 0;
+}
+
+.review-container {
+  background: rgba(0, 0, 0, 0.47);
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
+  padding-top: 12px;
+}
+
+.venue-showpage-details {
+  background: rgba(0, 0, 0, 0.47);
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
+  padding: 12px 0px 12px 0px;
 }

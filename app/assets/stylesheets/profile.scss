@@ -8,44 +8,28 @@ $low-opacity-white: rgba(255, 255, 255, 0.22);
 $text-shadow: 2px 2px 10px $black;
 $purple-button-back: rgb(120, 52, 138);
 
-#app {
-  text-align: -webkit-center;
+
+.review-title {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
-.top-five {
-  border: 1px solid $grey-shadow;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.65);
-  box-shadow: 4px 2px 9px rgba(255, 255, 255, 0.36);
-  // position: absolute;
-  // right: 5%;
-  margin: 5%;
-
-  h3 {
-    font-family: 'Comfortaa';
-    font-weight: 100;
-    text-align: center;
-    padding-top: 10px;
-  }
-
-  .review-tile {
-    text-align: center;
-
-    h4 {
-      font-weight: bold;
-    }
-
-    p {
-      text-align: center;
-    }
-
-    a {
-      text-align: center;
-      color: white;
-    }
-  }
+.review-timestamp {
+  font-weight: 100;
+  font-size: .8em;
 }
 
+.review-radio {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+
+.profile-email {
+  font-size: 1.25em;
+  margin-top: 1em;
+  text-shadow: 1px 1px 3px $black;
+}
 
 .button {
   text-align: center;
@@ -77,17 +61,16 @@ $purple-button-back: rgb(120, 52, 138);
   }
 }
 
-.home-content {
-  margin-top: 22%;
+.votes-number {
+  font-size: 2.2em;
+  font-weight: bold;
+  line-height: 2.2em;
+  vertical-align: middle;
+}
 
-h3 {
-    font-size: 4.5em;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px $black;
-  }
-
-  p {
-    font-size: 1.5em;
-    text-shadow: 1px 1px 3px $black;
-  }
+.profile-header {
+  margin: 1%;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px $black;
 }
