@@ -6,10 +6,14 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'dotenv'
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '~>6.2.1.0'
 gem 'responders'
+gem 'carrierwave'
+gem "mini_magick"
+gem "fog"
+gem "twitter"
+gem 'dotenv-rails'
 
 group :development do
   gem 'listen', '~> 3.0.5'
@@ -26,8 +30,8 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem 'valid_attribute'
   gem 'coveralls', require: false
-  gem 'faker'
   gem 'database_cleaner'
+  gem 'capybara-email'
 end
 
 group :production do

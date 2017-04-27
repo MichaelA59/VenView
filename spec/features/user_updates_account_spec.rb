@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'date'
 
 feature "User updates account:" do
   # As an authenticated user
@@ -6,7 +7,9 @@ feature "User updates account:" do
   # So that my information is no longer retained by the app
 
   scenario "User successfully updates their account with new email address" do
-    user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(
+      :user,
+    )
 
     visit root_path
     click_link 'Sign In'
@@ -26,6 +29,7 @@ feature "User updates account:" do
     click_button 'Update Profile'
 
     expect(page).to have_content "Success! Your profile has been updated."
+
     expect(page).to have_content "foo@foo.com"
   end
 
@@ -41,12 +45,13 @@ feature "User updates account:" do
     click_link "Signed In As #{user.first_name}"
     click_link "Edit Profile"
 
-    fill_in "Avatar", with: "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg"
+    fill_in "user_profile_pic_url",
+      with: "https://media4.giphy.com/media/jp2KXzsPtoKFG/giphy.gif"
 
     click_button "Update Profile"
 
     expect(page).to have_content "Success! Your profile has been updated."
-    expect(page).to have_xpath("//img[@src='http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg']")
+    expect(page).to have_xpath "//img[@src='https://media4.giphy.com/media/jp2KXzsPtoKFG/giphy.gif']"
   end
 
   scenario "User unsucessfully tries to update account with invalid email" do

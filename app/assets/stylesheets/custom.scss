@@ -37,7 +37,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Raleway
+  font-family: Raleway;
 }
 
 .input-group-rounded .input-group-field {
@@ -75,17 +75,5 @@ input {
 }
 
 .menu-text {
-  font-family: 'Rock Salt';
-}
-
-.radio-buttons {
-  margin: 0.5em 0em;
-  span input {
-    float: left;
-    margin-right: 0.25em;
-    margin-top: -0.25em;
-  }
-  label.string {
-    margin-bottom: 0.5em !important;
-  }
+  font-family: "Rock Salt";
 }

@@ -1,8 +1,10 @@
 <div class="row">
   <!-- Top banner dispay of UserName/Avatar/Email -->
   <h1 class='small-10 medium-3 columns text-left profile-header'> <%= @user.first_name %> <%= @user.last_name %> </h1>
-  <% if @user.avatar_url %>
-    <img src= "<%= @user.avatar_url %>" class='small-10 medium-4 columns text-center' />
+  <% if @user.avatar.medium.url === nil %>
+    <img src= "<%= @user.profile_pic_url %>" />
+  <% else %>
+    <%= image_tag @user.avatar.thumb.url %>
   <% end %>
 </div>
 <div class='row'>
@@ -35,6 +37,7 @@
 
   <!-- List of all reviews tied to this user (Total Vote Score, Title, Date, Ratings, Content)-->
   <% @reviews.each do |review| %>
+
     <div class="row venue-showpage-details">
       <div class="small-2 columns medium-1 text-center">
         <strong>Votes:</strong>
@@ -62,7 +65,7 @@
       </div>
 
       <!-- Edit and Delete Buttons (Edit is only for ADMIN) -->
-      <% if !current_user.admin? %>
+      <% if current_user === @user %>
         <div class="columns small-10 medium-3 text-center">
           <%= link_to 'Edit Review', edit_review_path(review), class: 'button float-left'  %>
           <%= link_to 'Delete Review', review_path(review), method: :delete, class: 'button float-right'  %>
@@ -71,4 +74,15 @@
     </div>
     <br>
   <% end %>
+<% end %>
+
+<% if !current_user.admin? || current_user === @user %>
+  <%= link_to 'Edit Profile', edit_user_path(@user) %></br>
+<% end %>
+
+<% if !current_user.admin? %>
+  <%= link_to "Delete Account", user_registration_path, :method => :delete %>
+<% end %>
+<% if current_user.admin? %>
+  <%= link_to "Delete Account", user_path, :method => :delete %>
 <% end %>

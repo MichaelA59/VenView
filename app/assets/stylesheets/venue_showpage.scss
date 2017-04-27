@@ -10,6 +10,7 @@ $venue-form-background-color: rgba(137, 157, 173, 0.7);
 $input-background-color: rgba(255, 255, 255, 0.54);
 $low-opacity-white: rgba(255, 255, 255, 0.22);
 $text-shadow: 2px 2px 10px $black;
+$red: #ff0000;
 
 h1 {
   .showpage-venue-name {
@@ -63,7 +64,7 @@ h1 {
   border-right: 10px solid transparent;
   display: inline-block;
   height: 0;
-	width: 0;
+  width: 0;
 }
 
 .triangle-down {
