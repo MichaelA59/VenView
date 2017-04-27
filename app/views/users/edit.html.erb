@@ -3,10 +3,17 @@
 <%= form_for @user do |f| %>
 
   <%= f.label :email, "Email" %>
-  <%= f.email_field :email, autofocus: true, :input_html => { :value => @user.email} %>
+  <%= f.email_field :email, autofocus: true, :input_html => { :value => @user.email } %>
 
-  <%= f.label :avatar_url, "Avatar" %>
-  <%= f.text_field :avatar_url, :input_html => { :value => @user.avatar_url} %>
+  <%= f.label :profile_pic_url, "Avatar" %>
+  <%= f.text_field :profile_pic_url %>
+
+  Or you can upload your own avatar!
+  <%= f.label :avatar, "Avatar Upload" %>
+  <%= f.file_field :avatar %>
+
+  Delete my avatar
+  <%= check_box_tag "delete-avatar", "1"%><br/>
 
   <%= f.submit "Update Profile", :id=>"Update Profile" %>
 <% end %>
