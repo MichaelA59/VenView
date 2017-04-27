@@ -12,7 +12,6 @@ Venue.create(name: 'Xfinity Center', url: 'http://www.mansfieldamp.com/', addres
 Venue.create(name: 'The Haven', url: 'http://thehavenjp.com/', address: '2 Perkins St', city: 'Jamaica Plain', state: 'MA', zip: '02130', capacity: '')
 Venue.create(name: '52 Church St', url: 'http://www.sinclaircambridge.com/', address: '15 Lansdowne St', city: 'Cambridge', state: 'MA', zip: '02138', capacity: '3500')
 
-
 User.create(first_name: 'Brianna', last_name: 'Kincart', email: 'brianna@test.com', password: 'password')
 User.create(first_name: 'Christine', last_name: 'Sohn', email: 'christine@test.com', password: 'password')
 User.create(first_name: 'Keith', last_name: 'Hubert', email: 'keith@test.com', password: 'password')
