@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem "mini_magick"
 gem "fog"
 gem "twitter"
+gem 'dotenv-rails'
 
 group :development do
   gem 'listen', '~> 3.0.5'
@@ -21,7 +22,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy', require: false
@@ -32,6 +32,7 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'faker'
   gem 'database_cleaner'
+  gem 'capybara-email'
 end
 
 group :production do
