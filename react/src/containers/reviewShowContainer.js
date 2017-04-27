@@ -36,8 +36,8 @@ class ReviewShowContainer extends Component {
     })
 
     return (
-      <div className="row align-justify">
-        <div className="column small-4 top-five">
+      <div className="row">
+        <div className="small-10 medium-4 columns">
           <h3> Recent Reviews </h3>
           <hr />
           {reviews}
