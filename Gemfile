@@ -12,6 +12,7 @@ gem 'responders'
 gem 'carrierwave'
 gem "mini_magick"
 gem "fog"
+gem "twitter"
 
 group :development do
   gem 'listen', '~> 3.0.5'
