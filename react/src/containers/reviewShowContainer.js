@@ -19,6 +19,7 @@ class ReviewShowContainer extends Component {
 
   componentDidMount() {
     this.loadReviewsFromServer();
+    setInterval(this.loadReviewsFromServer.bind(this), this.props.pollInterval);
   }
 
   render() {
