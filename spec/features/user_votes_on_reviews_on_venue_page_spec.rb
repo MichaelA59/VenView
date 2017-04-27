@@ -12,8 +12,8 @@ feature "User cannot vote if they are not logged in" do
 
     visit venue_path(venue)
 
-    expect(page).not_to have_content "Upvote"
-    expect(page).not_to have_content "Downvote"
+    expect(page).not_to have_selector(:css, "a.triangle-up")
+    expect(page).not_to have_selector(:css, "a.triangle-down")
     expect(page).to have_content "Votes: 0"
   end
 end
@@ -62,13 +62,13 @@ feature "Autheticated User can vote" do
     click_button 'Sign In'
 
     visit venue_path(venue)
-    expect(page).to have_content "Upvote"
-    expect(page).to have_content "Downvote"
+    expect(page).to have_selector(:css, "a.triangle-up")
+    expect(page).to have_selector(:css, "a.triangle-down")
 
-    first(:link, 'Upvote').click
+    first(:css, "a.triangle-up").click
 
-    expect(page).to have_content "Votes: 1 Upvoted Downvote review_three"
-    expect(page).not_to have_content "Votes: 1 Upvoted Downvote review_two"
+    expect(page).to have_content "Votes: 1 review_three"
+    expect(page).not_to have_content "Votes: 1 review_two"
   end
 
   scenario "User has already clicked 'Upvote' and clicks 'Upvote again'" do
@@ -80,17 +80,17 @@ feature "Autheticated User can vote" do
     click_button 'Sign In'
 
     visit venue_path(venue)
-    expect(page).to have_content "Upvote"
-    expect(page).to have_content "Downvote"
+    expect(page).to have_selector(:css, "a.triangle-up")
+    expect(page).to have_selector(:css, "a.triangle-down")
 
-    first(:link, 'Upvote').click
+    first(:css, "a.triangle-up").click
 
-    expect(page).to have_content "Votes: 1 Upvoted Downvote review_three"
-    expect(page).not_to have_content "Votes: 1 Upvoted Downvote review_two"
+    expect(page).to have_content "Votes: 1 review_three"
+    expect(page).not_to have_content "Votes: 1 review_two"
 
-    first(:link, 'Upvoted').click
+    first(:css, "a.triangle-up").click
 
-    expect(page).to have_content "Votes: 0 Upvote Downvote review_three"
+    expect(page).to have_content "Votes: 0 review_three"
   end
 
   scenario "User has already clicked 'Upvote' and clicks 'Downvote'" do
@@ -102,13 +102,13 @@ feature "Autheticated User can vote" do
     click_button 'Sign In'
 
     visit venue_path(venue)
-    expect(page).to have_content "Upvote"
-    expect(page).to have_content "Downvote"
+    expect(page).to have_selector(:css, "a.triangle-up")
+    expect(page).to have_selector(:css, "a.triangle-down")
 
-    first(:link, 'Upvote').click
-    first(:link, 'Downvote').click
+    first(:css, "a.triangle-up").click
+    first(:css, "a.triangle-down").click
 
-    expect(page).to have_content "Votes: -1 Upvote Downvoted review_three"
+    expect(page).to have_content "Votes: -1 review_three"
   end
 
   scenario "User has already clicked 'Downvote' and clicks 'Downvote' again" do
@@ -120,13 +120,13 @@ feature "Autheticated User can vote" do
     click_button 'Sign In'
 
     visit venue_path(venue)
-    expect(page).to have_content "Upvote"
-    expect(page).to have_content "Downvote"
+    expect(page).to have_selector(:css, "a.triangle-up")
+    expect(page).to have_selector(:css, "a.triangle-down")
 
-    first(:link, 'Downvote').click
-    first(:link, 'Downvoted').click
+    first(:css, "a.triangle-down").click
+    first(:css, "a.triangle-down").click
 
-    expect(page).to have_content "Votes: 0 Upvote Downvote review_three"
+    expect(page).to have_content "Votes: 0 review_three"
   end
 
   scenario "User has already clicked 'Downvote' and clicks 'Upvote'" do
@@ -138,13 +138,13 @@ feature "Autheticated User can vote" do
     click_button 'Sign In'
 
     visit venue_path(venue)
-    expect(page).to have_content "Upvote"
-    expect(page).to have_content "Downvote"
+    expect(page).to have_selector(:css, "a.triangle-up")
+    expect(page).to have_selector(:css, "a.triangle-down")
 
-    first(:link, 'Downvote').click
-    first(:link, 'Upvote').click
+    first(:css, "a.triangle-down").click
+    first(:css, "a.triangle-up").click
 
-    expect(page).to have_content "Votes: 1 Upvoted Downvote review_three"
+    expect(page).to have_content "Votes: 1 review_three"
   end
 
 end
