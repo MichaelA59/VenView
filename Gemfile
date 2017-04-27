@@ -7,7 +7,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '~>6.2.1.0'
 gem 'responders'
 gem 'carrierwave'
 gem "mini_magick"
@@ -30,7 +30,6 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem 'valid_attribute'
   gem 'coveralls', require: false
-  gem 'faker'
   gem 'database_cleaner'
   gem 'capybara-email'
 end
