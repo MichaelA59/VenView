@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans%7CRock+Salt%7CRaleway');
 @import "venue_form";
 @import "nav_search_bar";
 @import "venue_showpage";
@@ -33,7 +33,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Montserrat, fantasy
+  font-family: Raleway
 }
 
 .input-group-rounded .input-group-field {
@@ -68,4 +68,8 @@ h6 {
 
 input {
   color: $white;
+}
+
+.menu-text {
+  font-family: 'Rock Salt';
 }

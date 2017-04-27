@@ -1,27 +1,42 @@
-# README
+# VenView
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Venview is a web app that allows users to post/search for reviews of music
+venues. Users can upvote or downvote reviews based on how helpful they are, rate
+aspects of the venue, and upload photos to the site. Project demonstrates CRUD
+operations.
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+### Installing and Running
 
-* Configuration
+```
+Clone repo
+```
 
-* Database creation
+```
+bundle install
+```
 
-* Database initialization
+```
+npm start
+```
 
-* How to run the test suite
+```
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Built With
 
-* Deployment instructions
+* [Ruby on Rails](http://rubyonrails.org/) - The web framework used
+* [React](https://facebook.github.io/react/) - JavaScript Library
 
-* ...
+## Authors
+
+* **Michael Adamski** - [MichaelA59](https://github.com/MichaelA59)
+* **Liz Chhouk** - [kisaraofpern](https://github.com/kisaraofpern)
+* **Keith Hubert** - [KeithHubert](https://github.com/KeithHubert)
+* **Brianna Kincart** - [bkincart](https://github.com/bkincart)
+* **Christine Sohn** - [clsohn](https://github.com/clsohn)
 
 ![Build Status](https://codeship.com/projects/b0175f50-0761-0135-c695-4619059f53e8/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/MichaelA59/VenView.png)
