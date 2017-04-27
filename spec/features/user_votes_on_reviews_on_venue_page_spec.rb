@@ -62,7 +62,6 @@ feature "Autheticated User can vote" do
     click_button 'Sign In'
 
     visit venue_path(venue)
-    binding.pry
     expect(page).to have_selector(:css, "a.triangle-up")
     expect(page).to have_selector(:css, "a.triangle-down")
 
