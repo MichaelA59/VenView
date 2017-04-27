@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-  before_action :authorize_user, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :authorize_admin, only: [:edit, :update, :destroy]
 
   def index
