@@ -58,9 +58,9 @@ h1 {
 
 
 .triangle-up {
+  border-bottom: 20px solid $red;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 20px solid $red;
   display: inline-block;
   height: 0;
   width: 0;
