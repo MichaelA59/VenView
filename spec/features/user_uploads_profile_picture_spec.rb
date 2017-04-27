@@ -19,12 +19,15 @@ feature "User uploads profile picture:" do
     expect(page).to have_content "Edit Your Profile"
 
     page.find('#user_avatar').click
-    attach_file("Upload Your File", Rails.root + "spec/fixtures/test_picture.jpg")
-    click_button 'Open'
+    attach_file("Avatar Upload", Rails.root + "spec/fixtures/files/test_picture.jpg")
 
-    click_link "Update Profile"
+    click_button "Update Profile"
 
     expect(page).to have_content "Success! Your profile has been updated."
-    expect(page).to have_content "foo@foo.com"
+
+    binding.pry
+    save_and_open_page
+
+    expect(page).to have_xpath ('//img[contains(@src,"/thumb_test_picture.jpg")]')
   end
 end

@@ -15,18 +15,27 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     @user = User.find(params[:id])
     @user.email = params[:user][:email]
-    @user.avatar_url = params[:user][:avatar_url]
-    @user.avatar = params[:user][:avatar]
 
-    if @user.save!
+    if params[:user][:avatar]
+      @user.avatar = params[:user][:avatar]
+      @user.profile_pic_url = @user.avatar.thumb.url
+    else
+      @user.profile_pic_url = params[:user][:profile_pic_url]
+    end
+
+    if params[:user][:delete_avatar]
+      @user.profile_pic_url = ""
+      @user.avatar = nil
+    end
+
+    if @user.save
       flash[:notice] = 'Success! Your profile has been updated.'
       redirect_to @user
     else
       @user.email = params[:user][:email]
-      @user.avatar_url = params[:user][:avatar_url]
+      @user.profile_pic_url = params[:user][:profile_pic_url]
       @user.avatar = params[:user][:avatar]
       render :edit
     end

@@ -1,8 +1,7 @@
 <h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
 
-<% binding.pry %>
 <% if @user.avatar.medium.url === nil %>
-  <img src= "<%= @user.avatar_url %>" />
+  <img src= "<%= @user.profile_pic_url %>" />
 <% else %>
   <%= image_tag @user.avatar.thumb.url %>
 <% end %>
