@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Rock+Salt|Raleway|Comfortaa:300,400');
+$white: #ffffff;
+$black: #000000;
+$grey-shadow: #999;
+$venue-form-background-color: rgba(137, 157, 173, 0.7);
+$input-background-color: rgba(255, 255, 255, 0.54);
+$low-opacity-white: rgba(255, 255, 255, 0.22);
+$text-shadow: 2px 2px 10px $black;
+$top-five-background: rgba(0, 0, 0, 0.65);
+$top-five-box-shadow: rgba(255, 255, 255, 0.36);
+$top-five-dark: rgb(120, 52, 138);
+$top-five-light: #f7f7f7;
+
+#app {
+  position: relative;
+}
+
+.top-five {
+  background: $top-five-background;
+  border: 1px solid $grey-shadow;
+  border-radius: 5px;
+  box-shadow: 4px 2px 9px $top-five-box-shadow;
+  margin: 5%;
+  position: absolute;
+  right: 5%;
+
+  h3 {
+    font-family: "Comfortaa";
+    font-weight: 100;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .review-tile {
+    text-align: center;
+
+    h4 {
+      font-weight: bold;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    a {
+      color: $white;
+      text-align: center;
+    }
+  }
+}
+
+
+.button {
+  background: $top-five-dark;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transition: 0.3s;
+
+  ::after {
+    background: $top-five-light;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 50%;
+    transition: 0.6s;
+    position: absolute;
+    width: 0;
+  }
+
+  &:hover {
+    background: $top-five-dark;
+    cursor: pointer;
+
+    ::after {
+      left: 0;
+      width: 100%;
+    }
+  }
+}
