@@ -7,12 +7,13 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'devise'
-gem 'foundation-rails'
+gem 'foundation-rails', '~>6.2.1.0'
 gem 'responders'
 gem 'carrierwave'
 gem "mini_magick"
 gem "fog"
 gem "twitter"
+gem 'dotenv-rails'
 
 group :development do
   gem 'listen', '~> 3.0.5'
@@ -21,7 +22,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy', require: false
