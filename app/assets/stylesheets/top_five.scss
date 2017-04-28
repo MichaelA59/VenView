@@ -20,8 +20,7 @@ $top-five-light: #f7f7f7;
   background: $top-five-background;
   border: 1px solid $grey-shadow;
   border-radius: 5px;
-  background: rgba(0, 0, 0, 0.65);
-  box-shadow: 4px 2px 9px rgba(255, 255, 255, 0.36);
+  box-shadow: 4px 2px 9px $top-five-box-shadow;
   margin: 5%;
 
   h3 {
@@ -83,14 +82,14 @@ $top-five-light: #f7f7f7;
 .home-content {
   margin-top: 22%;
 
-h1 {
-    font-size: 3em;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px $black;
-  }
+  h1 {
+      font-size: 3em;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px $black;
+    }
 
-  p {
-    font-size: 1.5em;
-    text-shadow: 1px 1px 3px $black;
-  }
+    p {
+      font-size: 1.5em;
+      text-shadow: 1px 1px 3px $black;
+    }
 }
