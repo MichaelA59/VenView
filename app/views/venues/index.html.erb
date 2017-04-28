@@ -7,11 +7,17 @@
 
 <div class="row">
   <% @venues.each do |venue| %>
-  <div class="small-10 medium-6 large-3 columns venue-box">
-    <%= link_to venue.name, venue_path(venue) %><br/>
-  </div>
-
+    <% if venue == @venues.last %>
+      <div class="small-10 medium-6 large-3 columns venue-box end">
+      <%= link_to venue.name, venue_path(venue) %><br/>
+      </div>
+    <% else %>
+      <div class="small-10 medium-6 large-3 columns venue-box">
+      <%= link_to venue.name, venue_path(venue) %><br/>
+      </div>
+    <% end %>
   <% end %>
+
   <% if @venues.blank? %>
   <h4>No Results for: <%= params[:search] %>.</h4>
   <% end %>

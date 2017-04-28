@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script src="https://use.fontawesome.com/8dfe7c0466.js"></script>
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyAyl6HnE9T-MHtzO6WIwS5cZ8f7KWhJFPw"
       type="text/javascript"></script>
   </head>
@@ -32,6 +33,7 @@
         </div>
         <div class="top-bar-right">
           <ul class="menu sign-up">
+            <li> <a href='https://twitter.com/venview'><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a> </li>
             <% if user_signed_in? %>
               <li>
                 <%= link_to "Signed In As #{current_user.first_name}",
