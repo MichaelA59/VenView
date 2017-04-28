@@ -74,10 +74,3 @@
     <br>
   <% end %>
 <% end %>
-
-<% if !current_user.admin? %>
-  <%= link_to "Delete Account", user_registration_path, :method => :delete, class: 'button' %>
-<% end %>
-<% if current_user.admin? %>
-  <%= link_to "Delete Account", user_path, :method => :delete, class: 'button' %>
-<% end %>
