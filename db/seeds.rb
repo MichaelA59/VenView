@@ -50,9 +50,9 @@ Venue.create(
 )
 
 Venue.create(
-  name: '52 Church St',
+  name: 'The Sinclair',
   url: 'http://www.sinclaircambridge.com/',
-  address: '15 Lansdowne St',
+  address: '52 Church St',
   city: 'Cambridge',
   state: 'MA',
   zip: '02138',
@@ -112,7 +112,8 @@ Review.create(
   cost: 3,
   sound_quality: 5,
   parking: 2,
-  body: ''
+  body: '',
+  venue_name: 'Xfinity Center'
 )
 
 Review.create(
@@ -122,7 +123,8 @@ Review.create(
   cost: 1,
   sound_quality: 4,
   parking: 3,
-  body: 'The music was great but it was jam packed and the drinks were expensive!'
+  body: 'The music was great but it was jam packed and the drinks were expensive!',
+  venue_name: 'The Sinclair'
 )
 
 Review.create(
@@ -132,7 +134,8 @@ Review.create(
   cost: 2,
   sound_quality: 1,
   parking: 2,
-  body: 'Corner bar with friendly owner and delicious food'
+  body: 'Corner bar with friendly owner and delicious food',
+  venue_name: 'The Haven'
 )
 
 Review.create(
@@ -142,7 +145,8 @@ Review.create(
   cost: 4,
   sound_quality: 2,
   parking: 4,
-  body: 'Summer nights at this arena are amazing. Get lawn seats and just gaze up at the stars while listening to incredible feel-good summery music!'
+  body: 'Summer nights at this arena are amazing. Get lawn seats and just gaze up at the stars while listening to incredible feel-good summery music!',
+  venue_name: 'Xfinity Center'
 )
 
 Review.create(
@@ -152,7 +156,8 @@ Review.create(
   cost: 5,
   sound_quality: 3,
   parking: 1,
-  body: 'This place is jamming and the attached restaurant has great food and AMAZING cocktails'
+  body: 'This place is jamming and the attached restaurant has great food and AMAZING cocktails',
+  venue_name: 'The Sinclair'
 )
 
 Review.create(
@@ -162,7 +167,8 @@ Review.create(
   cost: 3,
   sound_quality: 2,
   parking: 5,
-  body: 'Saw Johnnyswim here. The venue is great - multiple bars and a cool crowd. I love the balcony up top.'
+  body: 'Saw Johnnyswim here. The venue is great - multiple bars and a cool crowd. I love the balcony up top.',
+  venue_name: 'Paradise Rock Club'
 )
 
 Review.create(
@@ -172,7 +178,8 @@ Review.create(
   cost: 5,
   sound_quality: 4,
   parking: 1,
-  body: ''
+  body: '',
+  venue_name: 'The Haven'
 )
 
 Review.create(
@@ -182,7 +189,8 @@ Review.create(
   cost: 2,
   sound_quality: 5,
   parking: 4,
-  body: 'I saw Marc Broussard here and it was incredible - sound quality is fantastic and it was such an up-close experience!'
+  body: 'I saw Marc Broussard here and it was incredible - sound quality is fantastic and it was such an up-close experience!',
+  venue_name: 'The Sinclair'
 )
 
 Review.create(
@@ -192,7 +200,8 @@ Review.create(
   cost: 2,
   sound_quality: 2,
   parking: 3,
-  body: 'Lots of students come here as it\'s right in BU\'s campus'
+  body: 'Lots of students come here as it\'s right in BU\'s campus',
+  venue_name: 'Paradise Rock Club'
 )
 
 Review.create(
@@ -202,5 +211,6 @@ Review.create(
   cost: 4,
   sound_quality: 1,
   parking: 4,
-  body: 'The bouncers wouldn\'t let us in cuz we had our kids with us - total meatheads.'
+  body: 'The bouncers wouldn\'t let us in cuz we had our kids with us - total meatheads.',
+  venue_name: 'House of Blues'
 )
