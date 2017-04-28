@@ -88,4 +88,16 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'venview.herokuapp.com' }
+
+  config.action_mailer.smtp_settings = {
+    :openssl_verify_mode => OpenSSL::SSL::VERIFY_NONE,
+    :ssl => true,
+    :enable_starttls_auto => true,  #this is the important stuff!
+    :address        => 'smtp.gmail.com',
+    :port           => 465,
+    :domain         => 'gmail.com',
+    :authentication => :plain,
+    :user_name      => 'venview71@gmail.com',
+    :password       => 'iamnotarobot'
+  }
 end
