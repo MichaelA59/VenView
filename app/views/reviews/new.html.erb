@@ -1,24 +1,34 @@
-<div class='form-box'>
+<div class='review-box'>
 
-<h1 class='new-header'> New Review Form </h1>
+  <h1 class='new-header'> New Review Form </h1>
 
-<%= form_for ([@venue, @review]) do |f| %>
+  <%= form_for ([@venue, @review]) do |f| %>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <p class='error'><%= show_errors(@review, 'Title') %></p>
+    <div class='row'>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <p class='error'><%= show_errors(@review, 'Title') %></p>
+    </div>
 
-    <%= f.label :cost %>
-    <%= f.collection_radio_buttons :cost, @ratings_collection, :first, :last %>
+    <div class='row'>
+        <%= f.label :cost %>
+        <%= f.collection_radio_buttons :cost, @ratings_collection, :first, :last%>
+    </div>
 
-    <%= f.label :sound_quality, 'Sound Quality' %>
-    <%= f.collection_radio_buttons :sound_quality, @ratings_collection, :first, :last %>
+    <div class='row'>
+      <%= f.label :sound_quality, 'Sound Quality' %>
+        <%= f.collection_radio_buttons :sound_quality, @ratings_collection, :first, :last %>
+    </div>
 
-    <%= f.label :parking, 'Parking/Accessibility' %>
-    <%= f.collection_radio_buttons :parking, @ratings_collection, :first, :last %>
+    <div class='row'>
+      <%= f.label :parking, 'Parking/Accessibility' %>
+      <%= f.collection_radio_buttons :parking, @ratings_collection, :first, :last %>
+    </div>
 
-    <%= f.label :body, 'Comments' %>
-    <%= f.text_area :body %>
+    <div class='row'>
+      <%= f.label :body, 'Comments' %>
+      <%= f.text_area :body %>
+    </div>
 
     <div class='submit-container'>
       <%= f.submit "Submit Review" %>

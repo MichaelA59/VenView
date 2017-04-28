@@ -4,7 +4,7 @@
 <% end %>
 
 <div class='row'>
-  <h1 class='showpage-venue-name small-10 small-centered text-center'><%= @venue.name %></h1>
+  <h1 class='columns showpage-venue-name small-10 medium-4 small-centered text-center venue-showpage-details'><%= @venue.name %></h1>
   <% if @venue.url? %>
     <p class='showpage-link small-10 small-centered text-center'><a href="<%=@venue.url%>">Venue Website</a></p>
   <% end %>
@@ -12,7 +12,7 @@
 <br />
 
 <div class='row'>
-  <div class='venue-address-box small-10 medium-4 small-centered columns text-center'>
+  <div class='venue-address-box small-10 medium-4 small-centered columns text-center venue-showpage-details'>
     <strong>Venue Address:</strong>
     <p>
       <%= @venue.address %><br/>
@@ -26,6 +26,7 @@
     <%= link_to 'Add New Review', new_venue_review_path(@venue), class: 'button add-review' %><br/>
   </div>
 </div>
+<br>
 
 <div class='row'>
   <div class='small-10 medium-4 small-centered columns map-container' id='map'>
@@ -36,7 +37,7 @@
 <hr />
 
 <% @reviews.each do |review| %>
-  <div class="row">
+  <div class="row review-container">
     <div class="columns small-5 medium-1">
       <strong>Votes: </strong>
       <% total_upvotes = Vote.where({ review_id: review.id, up_or_down: "upvote" }).size %>
@@ -48,7 +49,7 @@
 
     <!-- Upvote / Downvote Section -->
     <div class="row">
-      <div class="small-1 medium-4 columns">
+      <div class="small-1 medium-4 columns votes">
         <% this_vote = Vote.find_by(user: current_user, review: review) %>
         <% if current_user && !this_vote %>
           <%= link_to '', votes_path(:vote => { user_id: current_user.id, review_id: review.id, up_or_down: "upvote"}), method: :post, class: 'triangle-up' %>
@@ -93,13 +94,13 @@
     </div>
   </div>
 
-  <hr />
-  <br/>
+  <hr/>
+  <!-- <br/> -->
 <% end %>
 
 <div class='row'>
-  <div class='small-10 align-center text-center'
-    <%= link_to 'Back to Venues', venues_path %>
+  <div class='small-10 small-centered text-center'>
+    <%= link_to 'Back to Venues', venues_path, class: 'button'%>
   </div>
 </div>
 

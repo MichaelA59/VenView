@@ -4,19 +4,22 @@
   </div>
 </div>
 
-<% @venues.each do |venue| %>
 
-  <div class="venue-box">
+<div class="row">
+  <% @venues.each do |venue| %>
+  <div class="small-10 medium-6 large-3 columns venue-box">
     <%= link_to venue.name, venue_path(venue) %><br/>
   </div>
 
-  <% if @venues.blank? %>
-    <h4>No Results for: <%= params[:search] %>.</h4>
   <% end %>
-<% end %>
+  <% if @venues.blank? %>
+  <h4>No Results for: <%= params[:search] %>.</h4>
+  <% end %>
+</div>
+
 
 <br />
 
 <div class='add-venue'>
-  <%= link_to "Add a Venue", new_venue_path, class: 'button' %>
+  <%= link_to "Add a New Venue", new_venue_path, class: 'button' %>
 </div>

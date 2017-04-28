@@ -15,7 +15,7 @@
   Delete my avatar
   <%= check_box_tag "delete-avatar", "1"%><br/>
 
-  <%= f.submit "Update Profile", :id=>"Update Profile" %>
+  <%= f.submit "Update Profile", class: "button" %>
 <% end %>
 
 <% if @user.errors.any? %>

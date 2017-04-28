@@ -4,12 +4,15 @@
 
 $white: #ffffff;
 $black: #000000;
+$red: #ff0000;
 $grey-shadow: #999;
 $venue-form-background-color: rgba(137, 157, 173, 0.7);
 $input-background-color: rgba(255, 255, 255, 0.54);
 $low-opacity-white: rgba(255, 255, 255, 0.22);
 $text-shadow: 2px 2px 10px $black;
 $red: #ff0000;
+$review-box-grey: rgba(0, 0, 0, 0.75);
+$review-box-background: rgba(0, 0, 0, 0.47);
 
 h1 {
   .showpage-venue-name {
@@ -73,4 +76,18 @@ h1 {
   display: inline-block;
   height: 0;
   width: 0;
+}
+
+.review-container {
+  background: $review-box-background;
+  border-radius: 8px;
+  box-shadow: 1px 1px 15px $review-box-grey;
+  padding-top: 12px;
+}
+
+.venue-showpage-details {
+  background: $review-box-background;
+  border-radius: 8px;
+  box-shadow: 1px 1px 15px $review-box-grey;
+  padding: 12px 0;
 }

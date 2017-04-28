@@ -7,7 +7,7 @@ $input-background-color: rgba(255, 255, 255, 0.54);
 $low-opacity-white: rgba(255, 255, 255, 0.22);
 $text-shadow: 2px 2px 10px $black;
 
-.form-box {
+.review-box {
   background-color: $venue-form-background-color;
   border: solid 2px;
   border-color: $low-opacity-white;
@@ -19,7 +19,7 @@ $text-shadow: 2px 2px 10px $black;
 
   label {
     color: $white;
-    float: left;
+    // float: left;
     text-shadow: $text-shadow;
     vertical-align: center;
   }
@@ -28,41 +28,16 @@ $text-shadow: 2px 2px 10px $black;
     background-color: $input-background-color;
     border-color: $low-opacity-white;
     border-radius: 5px;
-    margin: 0 auto;
     margin-left: auto;
     margin-right: 0;
-    width: 75%;
-  }
-
-  select {
-    background-color: $input-background-color;
-    border-color: $low-opacity-white;
-    border-radius: 5px;
-    float: right;
-    width: 75%;
-  }
-
-  input[type='radio'] {
-    width: 3em;
   }
 
   .submit-container {
     text-align: center;
   }
 
-  #create-venue {
-    color: $black;
-    font-size: 1.5em;
-    font-weight: 400;
-    text-align: center;
-    text-shadow: $text-shadow;
-  }
   .error {
-    font-size: .8em;
+    font-size: 0.8em;
     text-shadow: $text-shadow;
   }
-}
-
-select#venue-state {;
-  bottom: 2px;
 }

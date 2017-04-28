@@ -6,13 +6,14 @@ $venue-form-background-color: rgba(137, 157, 173, 0.7);
 $input-background-color: rgba(255, 255, 255, 0.54);
 $low-opacity-white: rgba(255, 255, 255, 0.22);
 $text-shadow: 2px 2px 10px $black;
+$purple-button-back: rgb(120, 52, 138);
 $top-five-background: rgba(0, 0, 0, 0.65);
 $top-five-box-shadow: rgba(255, 255, 255, 0.36);
 $top-five-dark: rgb(120, 52, 138);
 $top-five-light: #f7f7f7;
 
 #app {
-  position: relative;
+  text-align: -webkit-center;
 }
 
 .top-five {
@@ -21,8 +22,6 @@ $top-five-light: #f7f7f7;
   border-radius: 5px;
   box-shadow: 4px 2px 9px $top-five-box-shadow;
   margin: 5%;
-  position: absolute;
-  right: 5%;
 
   h3 {
     font-family: "Comfortaa";
@@ -70,12 +69,27 @@ $top-five-light: #f7f7f7;
   }
 
   &:hover {
-    background: $top-five-dark;
+    background: $purple-button-back;
     cursor: pointer;
 
-    ::after {
+    &:after {
       left: 0;
       width: 100%;
     }
+  }
+}
+
+.home-content {
+  margin-top: 22%;
+
+  h1 {
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px $black;
+  }
+
+  p {
+    font-size: 1.5em;
+    text-shadow: 1px 1px 3px $black;
   }
 }
