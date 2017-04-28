@@ -14,11 +14,11 @@
 <div class="row">
   <div class="columns small-10 medium-4 text-center">
     <br/>
-    <% if !current_user.admin? || current_user === @user %>
+    <% if !current_user.admin? %>
       <%= link_to 'Edit Profile', edit_user_path(@user), class: 'button float-left' %>
       <%= link_to "Delete Your Account", user_registration_path, :method => :delete, class: 'button' %>
     <% elsif current_user.admin? %>
-      <%= link_to "Delete Users Account", user_path, :method => :delete, class: 'button' %>
+      <%= link_to "Delete User's Account", user_path, :method => :delete, class: 'button' %>
     <% end %>
   </div>
 </div>

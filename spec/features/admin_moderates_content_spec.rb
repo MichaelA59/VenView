@@ -87,7 +87,7 @@ feature "Admin can see list of users" do
     expect(page).to have_content user_three.last_name
 
     click_link "#{user_two.first_name} #{user_two.last_name}"
-    click_link 'Delete Account'
+    click_link 'Delete User\'s Account'
 
     expect(page).not_to have_content user_two.first_name
     expect(page).to have_content user_three.last_name
