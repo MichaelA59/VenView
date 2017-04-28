@@ -1,25 +1,29 @@
-<h1> Edit Your Profile </h1>
+<div class='edit-profile-box'>
 
-<%= form_for @user do |f| %>
+  <h1> Edit Your Profile </h1>
 
-  <%= f.label :email, "Email" %>
-  <%= f.email_field :email, autofocus: true, :input_html => { :value => @user.email } %>
+  <%= form_for @user do |f| %>
 
-  <%= f.label :profile_pic_url, "Avatar" %>
-  <%= f.text_field :profile_pic_url %>
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email, autofocus: true, :input_html => { :value => @user.email } %>
 
-  Or you can upload your own avatar!
-  <%= f.label :avatar, "Avatar Upload" %>
-  <%= f.file_field :avatar %>
+    <%= f.label :profile_pic_url, "Avatar" %>
+    <%= f.text_field :profile_pic_url %>
 
-  Delete my avatar
-  <%= check_box_tag "delete-avatar", "1"%><br/>
+    Or you can upload your own avatar!
+    <%= f.label :avatar, "Avatar Upload" %>
+    <%= f.file_field :avatar %>
 
-  <%= f.submit "Update Profile", class: "button" %>
-<% end %>
+    Delete my avatar
+    <%= check_box_tag "delete-avatar", "1"%><br/>
 
-<% if @user.errors.any? %>
-  <% @user.errors.full_messages.each do |error| %>
-    <p><%= error %></p>
+    <div class='submit-container'>
+      <%= f.submit "Update Profile", class: "button" %>
+    </div>
   <% end %>
-<% end %>
+
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  <% end %>
