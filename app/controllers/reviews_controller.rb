@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       twitter_message = "Come see our new review for #{@venue.name}!
-       https://venview.herokuapp.com/venue/#{@venue.id}"
+       https://venview.herokuapp.com/venues/#{@venue.id}"
       $client.update(twitter_message)
       redirect_to venue_path(@venue)
     else
