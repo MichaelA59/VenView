@@ -1,7 +1,11 @@
-<% if current_user && current_user.admin? %>
-  <%= link_to "Update Venue", edit_venue_path(@venue) %>
-  <%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
-<% end %>
+<div class='row'>
+  <div class='small-10 small-centered text-centered columns'>
+    <% if current_user && current_user.admin? %>
+    <%= link_to "Update Venue", edit_venue_path(@venue), class: 'button' %>
+    <%= link_to "Delete Venue", venue_path(@venue), method: :delete, class: 'button' %>
+    <% end %>
+  </div>
+</div>
 
 <div class='row'>
   <h1 class='columns showpage-venue-name small-10 medium-4 small-centered text-center venue-showpage-details'><%= @venue.name %></h1>
