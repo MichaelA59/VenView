@@ -1,10 +1,53 @@
 <div class='form-box'>
 
-<h1>Edit Venue Form</h1>
+  <h1 class='new-header'>Edit Venue Form</h1>
 
-<%= render 'form', locals: {
-  venue: @venue,
-  state_collection: @state_collection
-} %>
+  <%= form_for @venue, :html => { :class => 'venue-form'} do |f| %>
 
+    <div class='row'>
+      <%= f.label :name, "Name"%>
+      <%= f.text_field :name, :autofocus=>true %>
+      <p class='error'><%= show_errors(@venue, 'Name') %></p>
+    </div>
+
+    <div class='row'>
+      <%= f.label :url, "Website" %>
+      <%= f.text_field :url %>
+      <p class='error'><%= show_errors(@venue, 'Url') %></p>
+    </div>
+
+    <div class='row'>
+      <%= f.label :address, "Address" %>
+      <%= f.text_field :address %>
+      <p class='error'><%= show_errors(@venue, 'Address') %></p>
+    </div>
+
+    <div class='row'>
+      <%= f.label :city, "City" %>
+      <%= f.text_field :city %>
+      <p class='error'><%= show_errors(@venue, 'City') %></p>
+    </div>
+
+    <div class='row'>
+      <%= f.label :state, "State" %>
+      <%= f.collection_select :state, @state_collection, :first, :last %>
+      <p class='error'><%= show_errors(@venue, 'State') %></p>
+    </div>
+
+    <div class='row'>
+      <%= f.label :zip, "Zip" %>
+      <%= f.text_field :zip %>
+      <p class='error'><%= show_errors(@venue, 'Zip') %></p>
+    </div>
+
+    <div class='row'>
+      <%= f.label :capacity, "Capacity" %>
+      <%= f.text_field :capacity %>
+    </div>
+    <br>
+
+    <div class='submit-container'>
+      <%= f.submit :id=>"create-venue" %>
+    </div>
+  <% end %>
 </div>
