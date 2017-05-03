@@ -37,7 +37,7 @@ class ReviewShowContainer extends Component {
 
     return (
       <div className='row'>
-        <div className='columns small-10 large-6 text-center home-content'>
+        <div className='columns small-centered large-uncentered small-10 large-6 text-center home-content'>
           <h1>No More Guessing</h1>
           <p>With VenView, finding the best venue is easy</p>
 
