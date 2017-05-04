@@ -4,7 +4,7 @@
 ![Code Climate](https://codeclimate.com/github/MichaelA59/VenView.png)
 [![Coverage Status](https://coveralls.io/repos/github/MichaelA59/VenView/badge.svg?branch=master)](https://coveralls.io/github/MichaelA59/VenView?branch=master)
 
-venview.herokuapp.com
+[Venview on Heroku](http://venview.herokuapp.com/)
 
 Venview is a web app that allows users to post/search for reviews of music
 venues. Users can upvote or downvote reviews based on how helpful they are, rate
