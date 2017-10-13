@@ -55,4 +55,8 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:title, :cost, :sound_quality, :parking, :body)
   end
+
+  def index
+    this is a test
+  end
 end
