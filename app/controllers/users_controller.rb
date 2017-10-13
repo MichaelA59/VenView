@@ -5,23 +5,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-    @user = User.find(params[:id])
-    @reviews = @user.reviews.order(created_at: :desc)
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    @user.email = params[:user][:email]
-
-    if params[:user][:avatar]
-      @user.avatar = params[:user][:avatar]
-      @user.profile_pic_url = @user.avatar.thumb.url
-    else
+  d
       @user.profile_pic_url = params[:user][:profile_pic_url]
     end
 
