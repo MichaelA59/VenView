@@ -2,21 +2,6 @@ class VenuesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :authorize_admin, only: [:edit, :update, :destroy]
 
-  def index
-    @venues = Venue.order('name ASC')
-      if params[:search]
-        @venues = Venue.search(params[:search]).order("created_at DESC")
-      else
-        @venues = Venue.all.order("created_at DESC")
-      end
-  end
-
-  def show
-    @venue = Venue.find(params[:id])
-    @reviews = @venue.reviews.order(created_at: :desc)
-  end
-
-  def new
     @venue = Venue.new
     @state_collection = Venue::STATES
   end

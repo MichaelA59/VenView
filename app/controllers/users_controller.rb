@@ -1,26 +1,7 @@
 class UsersController < ApplicationController
+  here's something i'm going to add!
   before_action :authorize_user, only: [:edit, :update, :show]
-  before_action :authorize_admin, only: [:index, :destroy]
-  def index
-    @users = User.all
-  end
-
-  def show
-    @user = User.find(params[:id])
-    @reviews = @user.reviews.order(created_at: :desc)
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    @user.email = params[:user][:email]
-
-    if params[:user][:avatar]
-      @user.avatar = params[:user][:avatar]
-      @user.profile_pic_url = @user.avatar.thumb.url
+  before_action :authorize_admin, only: [:indexer.avatar.thumb.url
     else
       @user.profile_pic_url = params[:user][:profile_pic_url]
     end
