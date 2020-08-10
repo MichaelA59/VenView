@@ -2,34 +2,7 @@ class UsersController < ApplicationController
   before_action :authorize_user, only: [:edit, :update, :show]
   before_action :authorize_admin, only: [:index, :destroy]
   def index
-    @users = User.all
-  end
-
-  def show
-    @user = User.find(params[:id])
-    @reviews = @user.reviews.order(created_at: :desc)
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    @user.email = params[:user][:email]
-
-    if params[:user][:avatar]
-      @user.avatar = params[:user][:avatar]
-      @user.profile_pic_url = @user.avatar.thumb.url
-    else
-      @user.profile_pic_url = params[:user][:profile_pic_url]
-    end
-
-    if params["delete-avatar"] === "1"
-      @user.profile_pic_url = ""
-      @user.remove_avatar!
-    end
-
+    @users =
     @user.skip_reconfirmation!
     if @user.save
       flash[:notice] = 'Success! Your profile has been updated.'
@@ -59,5 +32,10 @@ class UsersController < ApplicationController
     if !user_signed_in? || !current_user.admin?
       raise ActionController::RoutingError.new("Not Found")
     end
+  end
+
+  def show
+    @wizards = Wizard.all
+    render :show
   end
 end

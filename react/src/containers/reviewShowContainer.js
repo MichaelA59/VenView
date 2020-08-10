@@ -4,36 +4,7 @@ import ReviewTile from '../components/reviewTile'
 class ReviewShowContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      reviews: []
-    }
-  }
-
-  loadReviewsFromServer() {
-    fetch('api/v1/reviewapi')
-    .then(reviewResponse => reviewResponse.json())
-    .then(usableReviewData => {
-      this.setState({ reviews: usableReviewData })
-    })
-  }
-
-  componentDidMount() {
-    this.loadReviewsFromServer();
-    setInterval(this.loadReviewsFromServer.bind(this), this.props.pollInterval);
-  }
-
-  render() {
-    let reviews = this.state.reviews.map (review => {
-      return(
-        <ReviewTile
-          key={review.id}
-          id={review.id}
-          title={review.title}
-          venue_name = {review.venue_name}
-          venue_id = {review.venue_id}
-        />
-      )
-    })
+    this.
 
     return (
       <div className='row'>
